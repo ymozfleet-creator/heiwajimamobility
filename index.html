@@ -10,7 +10,7 @@
       --teal: #2abdb5;
       --teal-dark: #1e9990;
       --teal-light: #e8faf9;
-      --coral: #ff6b6b;
+      --coral: #e05555;
       --yellow: #ffd93d;
       --dark: #1a2e2d;
       --gray: #f4f8f7;
@@ -22,16 +22,14 @@
        PC LAYOUT (769px以上)
     ============================================= */
     .pc-layout { display: block; }
-    .sp-layout { display: none; }
+    .sp-layout  { display: none; }
 
-    /* HERO */
     .hero {
       background: linear-gradient(135deg, var(--teal) 0%, #1a9e96 60%, #0d7b73 100%);
       min-height: 100vh;
       display: flex; flex-direction: column;
       justify-content: center; align-items: center;
-      text-align: center;
-      padding: 60px 20px 80px;
+      text-align: center; padding: 60px 20px 80px;
       position: relative; overflow: hidden;
     }
     .hero::before { content:''; position:absolute; top:-80px; right:-80px; width:400px; height:400px; background:rgba(255,255,255,0.06); border-radius:50%; }
@@ -45,31 +43,26 @@
     .hero-scroll { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.6); font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; animation:bounce 2s infinite; }
     .hero-scroll::after { content:'↓'; display:block; text-align:center; font-size:1.2rem; }
 
-    /* SECTIONS */
     .section { padding: 80px 20px; }
     .section-inner { max-width: 960px; margin: 0 auto; }
     .section-label { font-size:0.8rem; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
     .section-title { font-weight:900; font-size:clamp(1.8rem,5vw,2.8rem); line-height:1.2; margin-bottom:48px; }
 
-    /* VEHICLES */
     .vehicles { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
     .vehicle-card { background:var(--gray); border-radius:24px; padding:40px 32px; position:relative; overflow:hidden; transition:transform 0.3s; }
     .vehicle-card:hover { transform:translateY(-6px); }
     .vehicle-card::before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:var(--teal); }
-    .vehicle-icon { font-size:3rem; margin-bottom:16px; }
-    .vehicle-name { font-weight:900; font-size:1.4rem; margin-bottom:8px; }
+    .vehicle-name { font-weight:900; font-size:1.5rem; margin-bottom:8px; }
     .vehicle-count { display:inline-block; background:var(--teal); color:#fff; font-size:0.75rem; font-weight:700; padding:4px 14px; border-radius:50px; margin-bottom:16px; }
     .vehicle-desc { color:#555; line-height:1.7; font-size:0.9rem; }
-    .vehicle-speed { margin-top:16px; font-size:0.78rem; color:#888; font-weight:500; }
+    .vehicle-speed { margin-top:14px; font-size:0.82rem; color:var(--teal-dark); font-weight:600; }
 
-    /* INFO BAND */
     .info-band { background:var(--dark); color:#fff; padding:60px 20px; }
-    .info-band-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:32px; }
+    .info-band-inner { max-width:960px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:32px; }
     .info-label { font-size:0.72rem; letter-spacing:3px; text-transform:uppercase; color:var(--teal); font-weight:700; margin-bottom:8px; }
-    .info-value { font-weight:700; font-size:1.05rem; line-height:1.5; }
+    .info-value { font-weight:700; font-size:1.05rem; line-height:1.6; }
     .info-date { font-family:'Poppins',sans-serif; font-size:2rem; font-weight:900; color:var(--yellow); }
 
-    /* PRICING */
     .pricing { background:var(--teal-light); padding:80px 20px; }
     .pricing-inner { max-width:700px; margin:0 auto; text-align:center; }
     .pricing-cards { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px; }
@@ -81,17 +74,14 @@
     .price-amount span { font-size:1.2rem; font-weight:400; }
     .price-note { font-size:0.75rem; margin-top:8px; opacity:0.7; }
 
-    /* BENEFITS */
     .benefits { padding:80px 20px; }
     .benefits-inner { max-width:960px; margin:0 auto; }
     .benefit-list { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px; }
-    .benefit-item { background:#fff; border:2px solid #e8f5f4; border-radius:20px; padding:28px; display:flex; gap:16px; align-items:flex-start; transition:border-color 0.2s,box-shadow 0.2s; }
+    .benefit-item { background:#fff; border:2px solid #e8f5f4; border-radius:20px; padding:28px; transition:border-color 0.2s,box-shadow 0.2s; }
     .benefit-item:hover { border-color:var(--teal); box-shadow:0 4px 20px rgba(42,189,181,0.1); }
-    .benefit-icon { font-size:2rem; flex-shrink:0; }
-    .benefit-title { font-weight:700; font-size:1rem; margin-bottom:6px; }
-    .benefit-desc { font-size:0.85rem; color:#666; line-height:1.6; }
+    .benefit-title { font-weight:700; font-size:1rem; margin-bottom:8px; color:var(--teal-dark); }
+    .benefit-desc { font-size:0.85rem; color:#666; line-height:1.7; }
 
-    /* HOW TO */
     .howto { background:var(--dark); padding:80px 20px; color:#fff; }
     .howto-inner { max-width:960px; margin:0 auto; }
     .howto .section-title { color:#fff; }
@@ -104,44 +94,34 @@
     .step { background:rgba(255,255,255,0.06); border-radius:20px; padding:28px 24px; }
     .step-num { font-family:'Poppins',sans-serif; font-size:2.5rem; font-weight:900; color:var(--teal); line-height:1; margin-bottom:12px; }
     .step-title { font-weight:700; font-size:1rem; margin-bottom:10px; }
-    .step-desc { font-size:0.84rem; color:rgba(255,255,255,0.65); line-height:1.7; }
+    .step-desc { font-size:0.84rem; color:rgba(255,255,255,0.7); line-height:1.7; }
 
-    /* MAP */
     .map-section { padding:80px 20px; }
     .map-inner { max-width:960px; margin:0 auto; }
     .destinations { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
     .dest-tag { background:var(--teal); color:#fff; padding:10px 20px; border-radius:50px; font-weight:700; font-size:0.9rem; text-decoration:none; transition:background 0.2s; }
     .dest-tag:hover { background:var(--teal-dark); }
-    .map-placeholder { margin-top:32px; background:var(--gray); border-radius:24px; padding:48px; text-align:center; }
-    .map-address { font-size:1rem; font-weight:700; margin-bottom:8px; }
-    .map-note { font-size:0.85rem; color:#888; }
-    .route-info { margin-top:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; text-align:left; }
+    .map-placeholder { margin-top:32px; background:var(--gray); border-radius:24px; padding:48px 40px; }
+    .map-address { font-size:1.1rem; font-weight:700; margin-bottom:8px; }
+    .map-note { font-size:0.85rem; color:#888; line-height:1.7; }
+    .route-info { margin-top:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
     .route-card { background:#fff; border-radius:16px; padding:20px; border:1px solid #e0f0ef; }
-    .route-icon { font-size:1.5rem; margin-bottom:8px; }
-    .route-name { font-weight:700; font-size:0.9rem; }
-    .route-link { display:block; font-size:0.72rem; color:var(--teal); margin-top:4px; text-decoration:none; }
-    .route-link:hover { text-decoration:underline; }
+    .route-name { font-weight:700; font-size:0.9rem; margin-bottom:8px; }
+    .route-link { display:inline-block; font-size:0.75rem; color:var(--teal); text-decoration:none; border-bottom:1px solid var(--teal); padding-bottom:1px; }
+    .route-link:hover { color:var(--teal-dark); border-color:var(--teal-dark); }
 
-    /* CAUTION */
     .caution { padding:60px 20px; background:var(--gray); }
     .caution-inner { max-width:960px; margin:0 auto; }
-    .caution-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:32px; }
-    .caution-item { background:#fff; border-radius:16px; padding:20px; border-left:4px solid var(--coral); font-size:0.88rem; line-height:1.6; color:#555; }
-    .caution-item strong { display:block; color:var(--dark); font-size:0.82rem; margin-bottom:4px; }
+    .caution-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-top:32px; }
+    .caution-item { background:#fff; border-radius:16px; padding:20px 22px; border-left:4px solid var(--coral); font-size:0.88rem; line-height:1.7; color:#555; }
+    .caution-item strong { display:block; color:var(--dark); font-size:0.9rem; margin-bottom:4px; }
 
-    /* FOOTER */
     footer { background:var(--dark); color:rgba(255,255,255,0.6); text-align:center; padding:40px 20px; font-size:0.85rem; }
     .footer-brand { font-size:1.3rem; font-weight:900; color:var(--teal); margin-bottom:8px; }
 
-    /* ANIMATIONS */
     @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
     @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-    /* PC responsive */
-    @media (max-width: 768px) {
-      .vehicles,.pricing-cards,.benefit-list,.steps,.route-info { grid-template-columns:1fr; }
-      .howto-tabs { flex-wrap:wrap; }
-    }
 
     /* =============================================
        SMARTPHONE LAYOUT (768px以下)
@@ -149,10 +129,8 @@
     @media (max-width: 768px) {
       .pc-layout { display: none !important; }
       .sp-layout  { display: block !important; }
-
       body { overflow: hidden; height: 100dvh; }
 
-      /* APP SHELL */
       #sp-app { position:fixed; inset:0; bottom:60px; overflow:hidden; }
       .sp-page {
         position:absolute; inset:0;
@@ -164,7 +142,6 @@
       }
       .sp-page.active { transform:translateX(0); }
 
-      /* BOTTOM NAV */
       #sp-nav {
         position:fixed; bottom:0; left:0; right:0; height:60px;
         background:#fff; border-top:1px solid #e5e5e5;
@@ -176,12 +153,12 @@
         font-family:'Noto Sans JP',sans-serif; -webkit-tap-highlight-color:transparent;
       }
       .sp-nav-btn.active { color:var(--teal); }
-      .sp-nav-btn .ni { font-size:1.2rem; }
+      .sp-nav-btn .ni { font-size:1.1rem; font-weight:700; }
       .sp-nav-btn .nl { font-size:0.58rem; font-weight:700; }
 
       /* PAGE HEADER */
       .sp-ph { background:linear-gradient(135deg,var(--teal),#0d7b73); padding:18px 16px 22px; color:#fff; }
-      .sp-ph h1 { font-size:1.3rem; font-weight:900; }
+      .sp-ph h1 { font-size:1.25rem; font-weight:900; }
       .sp-ph p  { font-size:0.8rem; opacity:0.85; margin-top:3px; line-height:1.5; }
 
       /* HERO */
@@ -192,86 +169,79 @@
       .sp-hero p { color:rgba(255,255,255,0.9); font-size:0.85rem; line-height:1.7; margin-bottom:22px; }
       .sp-cta { display:inline-block; background:#fff; color:var(--teal-dark); font-weight:700; font-size:0.92rem; padding:13px 28px; border-radius:50px; text-decoration:none; }
 
-      /* INFO TILES */
+      /* TILES */
       .sp-tiles { display:grid; grid-template-columns:1fr 1fr; gap:9px; padding:14px; }
-      .sp-tile { background:var(--gray); border-radius:12px; padding:13px; }
-      .sp-tile .tl { font-size:0.6rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:3px; }
-      .sp-tile .tv { font-size:0.82rem; font-weight:700; line-height:1.4; }
+      .sp-tile { background:var(--gray); border-radius:12px; padding:14px; }
+      .sp-tile .tl { font-size:0.6rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
+      .sp-tile .tv { font-size:0.82rem; font-weight:700; line-height:1.5; }
       .sp-tile .tb { font-family:'Poppins',sans-serif; font-size:1.5rem; font-weight:900; color:var(--teal-dark); line-height:1; }
       .sp-tile.full { grid-column:1/-1; }
 
       /* QUICK MENU */
       .sp-qgrid { display:grid; grid-template-columns:1fr 1fr; gap:9px; padding:0 14px 20px; }
-      .sp-qbtn { border:none; border-radius:13px; padding:16px 12px; cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; }
-      .sp-qbtn .qi { font-size:1.6rem; margin-bottom:5px; }
-      .sp-qbtn .ql { font-size:0.82rem; font-weight:700; color:var(--dark); line-height:1.4; }
+      .sp-qbtn { border:none; border-radius:13px; padding:16px 14px; cursor:pointer; text-align:left; -webkit-tap-highlight-color:transparent; }
+      .sp-qbtn .ql { font-size:0.85rem; font-weight:700; color:var(--dark); line-height:1.4; }
 
-      /* DIVIDER */
       .sp-div { height:7px; background:var(--gray); margin:3px 0; }
-
-      /* SECTION HEAD */
-      .sp-sh { padding:18px 16px 8px; }
-      .sp-sh .sl { font-size:0.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--teal); margin-bottom:3px; }
+      .sp-sh { padding:18px 16px 10px; }
+      .sp-sh .sl { font-size:0.62rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--teal); margin-bottom:4px; }
       .sp-sh h2 { font-size:1.2rem; font-weight:900; }
+      .pb { padding-bottom:24px; }
 
       /* MOB CARD */
       .sp-mob { margin:0 14px 13px; border-radius:18px; overflow:hidden; border:1.5px solid #dff0ef; }
       .sp-mob-top { background:var(--teal-light); padding:18px 18px 14px; }
-      .sp-mob-name { font-size:1.05rem; font-weight:900; }
-      .sp-mob-sub  { font-size:0.7rem; color:var(--teal-dark); font-weight:700; margin-top:2px; }
+      .sp-mob-name { font-size:1.1rem; font-weight:900; }
+      .sp-mob-sub  { font-size:0.72rem; color:var(--teal-dark); font-weight:700; margin-top:3px; }
       .sp-mob-body { padding:14px 18px 18px; }
-      .sp-mob-desc { font-size:0.82rem; color:#555; line-height:1.7; margin-bottom:12px; }
-      .sp-mob-link { display:inline-flex; align-items:center; gap:5px; background:var(--teal); color:#fff; font-size:0.78rem; font-weight:700; padding:8px 16px; border-radius:50px; text-decoration:none; }
+      .sp-mob-desc { font-size:0.83rem; color:#555; line-height:1.7; margin-bottom:12px; }
+      .sp-mob-link { display:inline-block; background:var(--teal); color:#fff; font-size:0.8rem; font-weight:700; padding:8px 18px; border-radius:50px; text-decoration:none; }
 
       /* PRICE */
       .sp-price-row { display:grid; grid-template-columns:1fr 1fr; gap:9px; padding:0 14px; }
-      .sp-pt { border-radius:14px; padding:18px 12px; text-align:center; background:var(--gray); }
+      .sp-pt { border-radius:14px; padding:20px 12px; text-align:center; background:var(--gray); }
       .sp-pt.feat { background:var(--teal); color:#fff; }
-      .sp-pt .ptime { font-size:0.72rem; font-weight:700; opacity:0.7; margin-bottom:5px; }
+      .sp-pt .ptime { font-size:0.72rem; font-weight:700; opacity:0.7; margin-bottom:6px; }
       .sp-pt .pnum  { font-family:'Poppins',sans-serif; font-size:2.4rem; font-weight:900; line-height:1; }
       .sp-pt .pnum small { font-size:0.95rem; font-weight:400; }
-      .sp-pt .phint { font-size:0.68rem; margin-top:5px; opacity:0.65; }
+      .sp-pt .phint { font-size:0.7rem; margin-top:6px; opacity:0.65; }
 
       /* BENEFIT */
-      .sp-ben { display:flex; gap:12px; background:#fff; border-radius:14px; padding:14px; margin:0 14px 9px; border:1.5px solid #eef5f4; }
-      .sp-ben .bi { font-size:1.6rem; flex-shrink:0; }
-      .sp-ben .bt { font-size:0.88rem; font-weight:700; margin-bottom:3px; }
-      .sp-ben .bd { font-size:0.76rem; color:#666; line-height:1.6; }
+      .sp-ben { background:#fff; border-radius:14px; padding:16px; margin:0 14px 10px; border:1.5px solid #eef5f4; }
+      .sp-ben .bt { font-size:0.9rem; font-weight:700; margin-bottom:4px; color:var(--teal-dark); }
+      .sp-ben .bd { font-size:0.78rem; color:#666; line-height:1.7; }
 
       /* STEPS */
       .sp-pay-tabs { display:flex; gap:7px; padding:14px 14px 0; }
-      .sp-ptab { flex:1; padding:9px 6px; border-radius:9px; border:2px solid #dff0ef; background:#fff; font-family:'Noto Sans JP',sans-serif; font-size:0.7rem; font-weight:700; color:#888; cursor:pointer; text-align:center; transition:all 0.2s; }
+      .sp-ptab { flex:1; padding:10px 6px; border-radius:9px; border:2px solid #dff0ef; background:#fff; font-family:'Noto Sans JP',sans-serif; font-size:0.72rem; font-weight:700; color:#888; cursor:pointer; text-align:center; transition:all 0.2s; }
       .sp-ptab.active { background:var(--teal); border-color:var(--teal); color:#fff; }
       .sp-steps { padding:12px 14px 0; display:none; }
       .sp-steps.active { display:block; }
-      .sp-step { display:flex; gap:12px; margin-bottom:10px; background:var(--gray); border-radius:13px; padding:14px; }
+      .sp-step { display:flex; gap:12px; margin-bottom:10px; background:var(--gray); border-radius:13px; padding:14px 16px; }
       .sp-snum  { font-family:'Poppins',sans-serif; font-size:1.6rem; font-weight:900; color:var(--teal); line-height:1; flex-shrink:0; width:30px; }
       .sp-stit  { font-size:0.88rem; font-weight:700; margin-bottom:3px; }
-      .sp-sdesc { font-size:0.76rem; color:#555; line-height:1.6; }
+      .sp-sdesc { font-size:0.77rem; color:#555; line-height:1.65; }
 
       /* DEST */
       .sp-dest-list { display:flex; flex-direction:column; gap:9px; padding:0 14px; }
-      .sp-dest { display:flex; align-items:center; gap:12px; background:var(--gray); border-radius:13px; padding:13px 14px; text-decoration:none; }
-      .sp-dest .di { font-size:1.5rem; }
-      .sp-dest .dn { font-size:0.88rem; font-weight:700; color:var(--dark); }
-      .sp-dest .dl { font-size:0.66rem; color:var(--teal); margin-top:1px; }
+      .sp-dest { display:flex; align-items:center; justify-content:space-between; background:var(--gray); border-radius:13px; padding:14px 16px; text-decoration:none; }
+      .sp-dest .dn { font-size:0.9rem; font-weight:700; color:var(--dark); }
+      .sp-dest .dl { font-size:0.72rem; color:var(--teal); margin-top:2px; }
+      .sp-dest-arrow { font-size:0.9rem; color:var(--teal); font-weight:700; }
 
       /* AREA TAGS */
       .sp-tags { display:flex; flex-wrap:wrap; gap:7px; padding:0 14px; }
-      .sp-tag  { background:var(--teal-light); color:var(--teal-dark); font-size:0.72rem; font-weight:600; padding:5px 12px; border-radius:50px; }
+      .sp-tag  { background:var(--teal-light); color:var(--teal-dark); font-size:0.73rem; font-weight:600; padding:6px 13px; border-radius:50px; }
 
       /* CAUTION */
       .sp-caut-list { display:flex; flex-direction:column; gap:9px; padding:0 14px; }
-      .sp-caut { display:flex; gap:10px; align-items:flex-start; background:#fff8f8; border-left:4px solid var(--coral); border-radius:0 11px 11px 0; padding:11px 13px; }
-      .sp-caut .ci { font-size:1.1rem; flex-shrink:0; }
-      .sp-caut .ct { font-size:0.76rem; line-height:1.6; color:#555; }
-      .sp-caut .ct strong { color:var(--dark); display:block; margin-bottom:1px; font-size:0.78rem; }
+      .sp-caut { background:#fff; border-left:4px solid var(--coral); border-radius:0 12px 12px 0; padding:12px 14px; }
+      .sp-caut .ct { font-size:0.78rem; line-height:1.65; color:#555; }
+      .sp-caut .ct strong { color:var(--dark); display:block; margin-bottom:2px; font-size:0.82rem; }
 
       /* SP FOOTER */
       .sp-foot { background:var(--dark); color:rgba(255,255,255,0.6); text-align:center; padding:24px 16px; font-size:0.76rem; margin-top:7px; }
       .sp-foot strong { color:var(--teal); font-size:0.95rem; display:block; margin-bottom:5px; }
-
-      .pb { padding-bottom:22px; }
     }
   </style>
 </head>
@@ -283,43 +253,48 @@
 <div class="pc-layout">
 
   <section class="hero">
-    <div class="hero-badge">🌿 平和島エリア・新サービス 2026.3.23 スタート</div>
+    <div class="hero-badge">平和島エリア・新サービス　2026.3.23 スタート</div>
     <h1 class="hero-title">モビリティを<br><span>レンタル</span>しよう！</h1>
-    <p class="hero-subtitle">免許不要で、子どもから高齢の方まで誰でも簡単に乗れる<br>座り乗りタイプのモビリティ WHILL と電動サイクル。<br>荷物もたっぷり乗せられて、移動が楽々に。</p>
-    <a href="#howto" class="hero-cta">🔑 利用予約はこちら</a>
+    <p class="hero-subtitle">免許不要で、子どもから高齢の方まで誰でも簡単に乗れる<br>座り乗りタイプの電動モビリティ WHILL と子ども乗せ電動サイクル。<br>荷物もたっぷり乗せられて、平和島エリアの移動が楽々に。</p>
+    <a href="#howto" class="hero-cta">利用予約はこちら</a>
     <div class="hero-scroll">SCROLL</div>
   </section>
 
+  <!-- VEHICLES -->
   <section class="section">
     <div class="section-inner">
       <p class="section-label">Our Vehicles</p>
       <h2 class="section-title">ご利用いただける<br>モビリティ</h2>
       <div class="vehicles">
         <div class="vehicle-card">
-          <div class="vehicle-icon">🛵</div>
           <div class="vehicle-name">WHILL model S</div>
           <span class="vehicle-count">全 3 台</span>
-          <p class="vehicle-desc">荷物もたっぷり乗せられて、座りながら楽々移動。一人乗り専用の電動モビリティです。免許不要で、安心・快適に平和島エリアを移動できます。</p>
-          <p class="vehicle-speed">⚡ 時速 6km ／ 移動用小型車</p>
-          <a href="https://youtu.be/83bBRbul-kE?si=Tynw4CflG7hWKrXy" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:16px;background:var(--teal);color:#fff;font-size:0.82rem;font-weight:700;padding:8px 18px;border-radius:50px;text-decoration:none;">▶ WHILL model S の紹介動画を見る</a>
+          <p class="vehicle-desc">座ったまま操作できる電動モビリティ。荷物もたっぷり乗せられて楽々移動できます。一人乗り専用・免許不要で、どなたでも安心してご利用いただけます。</p>
+          <p class="vehicle-speed">最高速度：時速 6km ／ 移動用小型車</p>
+          <a href="https://youtu.be/83bBRbul-kE?si=Tynw4CflG7hWKrXy" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:16px;background:var(--teal);color:#fff;font-size:0.84rem;font-weight:700;padding:9px 20px;border-radius:50px;text-decoration:none;">WHILL model S の紹介動画を見る</a>
         </div>
         <div class="vehicle-card">
-          <div class="vehicle-icon">🚲</div>
           <div class="vehicle-name">子ども乗せ電動サイクル</div>
           <span class="vehicle-count">全 1 台</span>
-          <p class="vehicle-desc">荷物も乗せられて、お子さまも一緒に乗ることができる電動サイクル。家族でのおでかけやお買い物に最適です。</p>
-          <p class="vehicle-speed">🧒 お子さまと一緒に乗れる</p>
+          <p class="vehicle-desc">お子さまと一緒に乗ることができる電動アシスト自転車。荷物もたっぷり積めて、家族でのお買い物やおでかけに最適です。</p>
+          <p class="vehicle-speed">お子さまと一緒に乗れる ／ オンライン決済専用</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- INFO BAND -->
   <div class="info-band">
     <div class="info-band-inner">
       <div>
         <p class="info-label">Start Date</p>
         <p class="info-date">2026.3.23</p>
         <p class="info-value" style="color:rgba(255,255,255,0.7);font-size:0.85rem;margin-top:4px;">月曜スタート</p>
+      </div>
+      <div>
+        <p class="info-label">Hours</p>
+        <p class="info-value" style="font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:900;color:var(--yellow);line-height:1;">24時間</p>
+        <p class="info-value" style="color:rgba(255,255,255,0.7);font-size:0.85rem;margin-top:4px;">いつでもご利用いただけます</p>
       </div>
       <div>
         <p class="info-label">Location</p>
@@ -331,15 +306,16 @@
       </div>
       <div>
         <p class="info-label">Payment</p>
-        <p class="info-value">現金 / オンライン決済<br><span style="font-size:0.8rem;color:rgba(255,255,255,0.6)">※電動サイクルはオンライン決済のみ</span></p>
+        <p class="info-value">現金 / オンライン決済<br><span style="font-size:0.8rem;color:rgba(255,255,255,0.6);">※電動サイクルはオンライン決済のみ</span></p>
       </div>
     </div>
   </div>
 
+  <!-- PRICING -->
   <section class="pricing">
     <div class="pricing-inner">
-      <p class="section-label" style="text-align:center">Pricing</p>
-      <h2 class="section-title" style="text-align:center">ご利用料金</h2>
+      <p class="section-label" style="text-align:center;">Pricing</p>
+      <h2 class="section-title" style="text-align:center;">ご利用料金</h2>
       <div class="pricing-cards">
         <div class="price-card">
           <p class="price-time">60 分</p>
@@ -355,108 +331,123 @@
     </div>
   </section>
 
+  <!-- BENEFITS -->
   <section class="benefits">
     <div class="benefits-inner">
       <p class="section-label">Special Benefits</p>
       <h2 class="section-title">お得な特典</h2>
       <div class="benefit-list">
         <div class="benefit-item">
-          <span class="benefit-icon">🛒</span>
-          <div>
-            <p class="benefit-title">京急プレミアポイント付与</p>
-            <p class="benefit-desc">京急ストアで500円以上のお買い物で<strong>京急プレミアポイント100ポイント</strong>を付与！<br>※モビリティの鍵を京急ストアレジにてご提示ください。</p>
-          </div>
+          <p class="benefit-title">京急プレミアポイント付与</p>
+          <p class="benefit-desc">京急ストアで500円以上のお買い物で<strong>京急プレミアポイント100ポイント</strong>を付与！<br>モビリティの鍵を京急ストアのレジにてご提示ください。</p>
         </div>
         <div class="benefit-item">
-          <span class="benefit-icon">📋</span>
-          <div>
-            <p class="benefit-title">事前説明会参加特典</p>
-            <p class="benefit-desc">事前説明会にご参加いただいた方限定で、<strong>お安く利用可能な定期券</strong>も購入できます！</p>
-          </div>
+          <p class="benefit-title">事前説明会参加特典</p>
+          <p class="benefit-desc">事前説明会にご参加いただいた方限定で、<strong>お安く利用可能な定期券</strong>も購入できます！</p>
         </div>
         <div class="benefit-item">
-          <span class="benefit-icon">👨‍👩‍👧</span>
-          <div>
-            <p class="benefit-title">免許不要・誰でも乗れる</p>
-            <p class="benefit-desc">子どもから高齢の方まで、免許なしでOK。平和島エリアを快適に移動できます。</p>
-          </div>
+          <p class="benefit-title">免許不要・誰でも乗れる</p>
+          <p class="benefit-desc">子どもから高齢の方まで、免許なしでOK。平和島エリアを快適に移動できます。</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- HOW TO -->
   <section class="howto" id="howto">
     <div class="howto-inner">
-      <p class="section-label" style="color:var(--teal)">How To Use</p>
-      <h2 class="section-title">利用から返却までの手順</h2>
+      <p class="section-label" style="color:var(--teal);">How To Use</p>
+      <h2 class="section-title">ご利用の流れ</h2>
       <div class="howto-tabs">
         <button class="tab-btn active" onclick="switchTab('online',event)">オンライン決済の場合</button>
         <button class="tab-btn" onclick="switchTab('cash',event)">現金決済の場合（WHILL のみ）</button>
       </div>
       <div id="tab-online" class="tab-content active">
         <div class="steps">
-          <div class="step"><div class="step-num">01</div><p class="step-title">利用予約</p><p class="step-desc">申し込みサイトより利用日時・モビリティを選択後、順番に沿って決済手続きを行なってください。空き状況は申し込みサイトよりご確認ください。</p></div>
-          <div class="step"><div class="step-num">02</div><p class="step-title">鍵を受け取る</p><p class="step-desc">ご登録アドレスに届く二次元バーコードをキーボックスにかざして、モビリティの鍵をお受け取りください。</p></div>
-          <div class="step"><div class="step-num">03</div><p class="step-title">返却する</p><p class="step-desc">利用時はモビリティから鍵を取り外し、利用終了後はロッカーへ返却をお願いします。※キーボックスを開ける際には再度二次元バーコードが必要となります。</p></div>
+          <div class="step">
+            <div class="step-num">01</div>
+            <p class="step-title">利用予約・決済</p>
+            <p class="step-desc">申し込みサイトより利用日時・モビリティを選択し、決済手続きを行ってください。空き状況は申し込みサイトよりご確認いただけます。</p>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <p class="step-title">鍵を受け取る</p>
+            <p class="step-desc">ご登録のメールアドレスに届く二次元バーコードをキーボックスにかざして、モビリティの鍵をお受け取りください。</p>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <p class="step-title">返却する</p>
+            <p class="step-desc">利用終了後はモビリティから鍵を取り外し、キーボックスへ返却してください。返却時も二次元バーコードが必要です。</p>
+          </div>
         </div>
       </div>
       <div id="tab-cash" class="tab-content">
         <div class="steps">
-          <div class="step"><div class="step-num">01</div><p class="step-title">利用予約</p><p class="step-desc">ガチャガチャに利用時間分の現金を投入し、カプセル内にある二次元バーコードをお受け取りください。※空き状況は現地のモビリティをご確認ください。</p></div>
-          <div class="step"><div class="step-num">02</div><p class="step-title">鍵を受け取る</p><p class="step-desc">カプセル内の二次元バーコードを取り出し、キーボックスへ二次元バーコードをかざして、モビリティの鍵をお受け取りください。</p></div>
-          <div class="step"><div class="step-num">03</div><p class="step-title">返却する</p><p class="step-desc">利用時はモビリティから鍵を取り外し、利用終了後はロッカーへ返却をお願いします。※キーボックスを開ける際には再度二次元バーコードが必要となります。</p></div>
+          <div class="step">
+            <div class="step-num">01</div>
+            <p class="step-title">現金を投入する</p>
+            <p class="step-desc">現地の現金投入式機器に利用時間分の現金を投入すると、二次元バーコードが印字されたカプセルが出てきます。空き状況は現地でご確認ください。</p>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <p class="step-title">鍵を受け取る</p>
+            <p class="step-desc">カプセル内の二次元バーコードをキーボックスにかざして、モビリティの鍵をお受け取りください。</p>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <p class="step-title">返却する</p>
+            <p class="step-desc">利用終了後はモビリティから鍵を取り外し、キーボックスへ返却してください。返却時も二次元バーコードが必要です。</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- AREA MAP -->
   <section class="map-section">
     <div class="map-inner">
       <p class="section-label">Area Map</p>
       <h2 class="section-title">移動できるエリア</h2>
-      <p style="color:#666;line-height:1.8;margin-bottom:16px;">コーシャハイム大森東でレンタル後、以下の目的地へ移動できます。<br>利用後は<strong>コーシャハイム大森東まで返却</strong>をお願いいたします。</p>
+      <p style="color:#666;line-height:1.8;margin-bottom:16px;">コーシャハイム大森東でレンタル後、以下の目的地へ移動できます。<br>ご利用後は必ず<strong>コーシャハイム大森東へ返却</strong>をお願いいたします。</p>
       <div class="destinations">
-        <a href="https://stores.itoyokado.co.jp/227" target="_blank" rel="noopener noreferrer" class="dest-tag">📍 イトーヨーカドー大森店</a>
-        <a href="https://www.keikyu-store.co.jp/shop/m_heiwajima/?store_id=12" target="_blank" rel="noopener noreferrer" class="dest-tag">📍 京急ストア 平和島店</a>
-        <a href="https://www.big-fun.jp/" target="_blank" rel="noopener noreferrer" class="dest-tag">📍 BIGFUN平和島</a>
+        <a href="https://stores.itoyokado.co.jp/227" target="_blank" rel="noopener noreferrer" class="dest-tag">イトーヨーカドー大森店</a>
+        <a href="https://www.keikyu-store.co.jp/shop/m_heiwajima/?store_id=12" target="_blank" rel="noopener noreferrer" class="dest-tag">京急ストア 平和島店</a>
+        <a href="https://www.big-fun.jp/" target="_blank" rel="noopener noreferrer" class="dest-tag">BIGFUN平和島</a>
       </div>
       <div class="map-placeholder">
-        <div style="font-size:2.5rem;margin-bottom:12px;">📍</div>
-        <p class="map-address">貸出場所：コーシャハイム大森東</p>
+        <p class="map-address">貸出・返却場所：コーシャハイム大森東</p>
         <p class="map-note">〒143-0012 東京都大田区大森東1丁目3</p>
-        <p class="map-note" style="margin-top:8px;color:var(--teal);font-weight:600;">通過エリア：沢田通り・京急本線・入三銀座商店街・平和島公園・平和の森公園・八幡通り・大田区立大森スポーツセンター・大森神社</p>
+        <p class="map-note" style="margin-top:8px;color:var(--teal-dark);font-weight:600;">立ち寄れるスポット：沢田通り・入三銀座商店街・平和島公園・平和の森公園・大田区立大森スポーツセンター・大森神社</p>
         <div class="route-info">
           <div class="route-card">
-            <div class="route-icon">🏪</div>
             <p class="route-name">イトーヨーカドー大森店</p>
-            <a href="https://stores.itoyokado.co.jp/227" target="_blank" rel="noopener noreferrer" class="route-link">公式サイトを見る →</a>
+            <a href="https://stores.itoyokado.co.jp/227" target="_blank" rel="noopener noreferrer" class="route-link">公式サイトを見る</a>
           </div>
           <div class="route-card">
-            <div class="route-icon">🛍️</div>
             <p class="route-name">京急ストア 平和島店</p>
-            <a href="https://www.keikyu-store.co.jp/shop/m_heiwajima/?store_id=12" target="_blank" rel="noopener noreferrer" class="route-link">公式サイトを見る →</a>
+            <a href="https://www.keikyu-store.co.jp/shop/m_heiwajima/?store_id=12" target="_blank" rel="noopener noreferrer" class="route-link">公式サイトを見る</a>
           </div>
           <div class="route-card">
-            <div class="route-icon">🎡</div>
             <p class="route-name">BIGFUN平和島</p>
-            <a href="https://www.big-fun.jp/" target="_blank" rel="noopener noreferrer" class="route-link">公式サイトを見る →</a>
+            <a href="https://www.big-fun.jp/" target="_blank" rel="noopener noreferrer" class="route-link">公式サイトを見る</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CAUTION -->
   <section class="caution">
     <div class="caution-inner">
       <p class="section-label">Important Notice</p>
       <h2 class="section-title">注意事項</h2>
-      <p style="color:#888;font-size:0.85rem;margin-top:-24px;margin-bottom:0">必ずお守りいただきますようお願いいたします。</p>
+      <p style="color:#888;font-size:0.85rem;margin-top:-24px;margin-bottom:0;">必ずお守りいただきますようお願いいたします。</p>
       <div class="caution-grid">
-        <div class="caution-item"><strong>🌧 悪天候時</strong>悪天候など天候によっては、ご乗車いただけない場合がございます。</div>
-        <div class="caution-item"><strong>📏 乗車条件</strong>身長140cm以上〜185cm以下、体重100kg以内の方が対象となります。</div>
-        <div class="caution-item"><strong>🚫 乗車不可</strong>飲酒されている方はご乗車いただけません。</div>
-        <div class="caution-item"><strong>🛵 WHILL は一人乗り専用</strong>二人乗りはできませんので、利用人数に応じた台数をご予約ください。</div>
-        <div class="caution-item"><strong>💳 予約・決済</strong>予約は1台ずつしか行えません。電動サイクルはオンライン決済のみ。WHILLは現金・オンライン決済をお選びいただけます。</div>
+        <div class="caution-item"><strong>悪天候時</strong>悪天候など天候によっては、ご乗車いただけない場合がございます。</div>
+        <div class="caution-item"><strong>乗車条件</strong>身長140cm以上〜185cm以下、体重100kg以内の方が対象となります。</div>
+        <div class="caution-item"><strong>乗車不可</strong>飲酒されている方はご乗車いただけません。</div>
+        <div class="caution-item"><strong>WHILL は一人乗り専用</strong>二人乗りはできません。利用人数に応じた台数をそれぞれご予約ください。</div>
+        <div class="caution-item"><strong>予約・決済について</strong>予約は1台ずつ行ってください。電動サイクルはオンライン決済のみ。WHILLは現金・オンライン決済どちらもご利用いただけます。</div>
       </div>
     </div>
   </section>
@@ -478,10 +469,10 @@
     <!-- HOME -->
     <div class="sp-page active" id="sp-home">
       <div class="sp-hero">
-        <div class="sp-badge">🌿 2026.3.23 スタート</div>
+        <div class="sp-badge">平和島エリア　2026.3.23 スタート</div>
         <h1>モビリティを<br><em>レンタル</em>しよう！</h1>
-        <p>免許不要で誰でも乗れる。<br>荷物もたっぷり、楽々移動。</p>
-        <a href="#" class="sp-cta" onclick="spShow('howto');return false;">🔑 利用予約を見る</a>
+        <p>免許不要で誰でも乗れる電動モビリティ。<br>荷物もたっぷり、楽々移動。</p>
+        <a href="#" class="sp-cta" onclick="spShow('howto');return false;">利用予約の流れを見る</a>
       </div>
       <div class="sp-tiles">
         <div class="sp-tile">
@@ -490,26 +481,31 @@
           <p class="tv" style="font-size:0.68rem;color:#888;margin-top:2px;">2026年 月曜スタート</p>
         </div>
         <div class="sp-tile">
+          <p class="tl">Hours</p>
+          <p class="tb">24H</p>
+          <p class="tv" style="font-size:0.68rem;color:#888;margin-top:2px;">いつでも利用可能</p>
+        </div>
+        <div class="sp-tile">
           <p class="tl">Pricing</p>
           <p class="tb">300<span style="font-size:0.82rem;font-weight:400;">円〜</span></p>
           <p class="tv" style="font-size:0.68rem;color:#888;margin-top:2px;">60分300円 / 120分500円</p>
+        </div>
+        <div class="sp-tile">
+          <p class="tl">Payment</p>
+          <p class="tv">現金 /<br>オンライン</p>
         </div>
         <div class="sp-tile full">
           <p class="tl">Location</p>
           <p class="tv">コーシャハイム大森東<br><span style="font-size:0.7rem;color:#888;font-weight:400;">東京都大田区大森東1丁目3</span></p>
         </div>
-        <div class="sp-tile full">
-          <p class="tl">Organizer</p>
-          <p class="tv">主催：合同会社 Limot<br><span style="font-size:0.72rem;font-weight:400;">協力：京急電鉄・大田区</span></p>
-        </div>
       </div>
       <div class="sp-div"></div>
-      <div style="padding:14px 14px 8px;"><p style="font-size:0.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);">QUICK MENU</p></div>
+      <div style="padding:14px 14px 8px;"><p style="font-size:0.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal);">MENU</p></div>
       <div class="sp-qgrid">
-        <button class="sp-qbtn" style="background:var(--teal-light);" onclick="spShow('mobility')"><div class="qi">🛵</div><div class="ql">モビリティ<br>紹介</div></button>
-        <button class="sp-qbtn" style="background:#fff7e6;" onclick="spShow('price')"><div class="qi">💴</div><div class="ql">料金・<br>特典</div></button>
-        <button class="sp-qbtn" style="background:#e8f5f4;" onclick="spShow('howto')"><div class="qi">📋</div><div class="ql">利用<br>手順</div></button>
-        <button class="sp-qbtn" style="background:#fef0f0;" onclick="spShow('area')"><div class="qi">🗺️</div><div class="ql">エリア<br>マップ</div></button>
+        <button class="sp-qbtn" style="background:var(--teal-light);" onclick="spShow('mobility')"><div class="ql">モビリティ紹介</div></button>
+        <button class="sp-qbtn" style="background:#fff7e6;" onclick="spShow('price')"><div class="ql">料金・特典</div></button>
+        <button class="sp-qbtn" style="background:#e8f5f4;" onclick="spShow('howto')"><div class="ql">ご利用の流れ</div></button>
+        <button class="sp-qbtn" style="background:#fef0f0;" onclick="spShow('area')"><div class="ql">エリア・行き先</div></button>
       </div>
       <div class="sp-foot">
         <strong>Limot × KEIKYU</strong>
@@ -520,123 +516,146 @@
 
     <!-- MOBILITY -->
     <div class="sp-page" id="sp-mobility">
-      <div class="sp-ph"><h1>🛵 モビリティ紹介</h1><p>免許不要・誰でも乗れる2種類のモビリティ</p></div>
+      <div class="sp-ph"><h1>モビリティ紹介</h1><p>免許不要・誰でも乗れる2種類のモビリティ</p></div>
       <div style="padding-top:14px;">
         <div class="sp-mob">
           <div class="sp-mob-top">
             <p class="sp-mob-name">WHILL model S</p>
-            <p class="sp-mob-sub">全3台 ／ 時速6km 移動用小型車</p>
+            <p class="sp-mob-sub">全3台 ／ 最高時速6km ／ 移動用小型車</p>
           </div>
           <div class="sp-mob-body">
-            <p class="sp-mob-desc">荷物もたっぷり乗せられて、座りながら楽々移動。一人乗り専用の電動モビリティです。免許不要で安心・快適に平和島エリアを移動できます。</p>
-            <a href="https://youtu.be/83bBRbul-kE?si=Tynw4CflG7hWKrXy" target="_blank" rel="noopener noreferrer" class="sp-mob-link">▶ 紹介動画を見る</a>
+            <p class="sp-mob-desc">座ったまま操作できる電動モビリティ。荷物もたっぷり乗せられて楽々移動できます。一人乗り専用・免許不要です。</p>
+            <a href="https://youtu.be/83bBRbul-kE?si=Tynw4CflG7hWKrXy" target="_blank" rel="noopener noreferrer" class="sp-mob-link">WHILL model S の紹介動画を見る</a>
           </div>
         </div>
         <div class="sp-mob">
           <div class="sp-mob-top">
             <p class="sp-mob-name">子ども乗せ電動サイクル</p>
-            <p class="sp-mob-sub">全1台</p>
+            <p class="sp-mob-sub">全1台 ／ オンライン決済専用</p>
           </div>
           <div class="sp-mob-body">
-            <p class="sp-mob-desc">荷物も乗せられて、お子さまも一緒に乗ることができる電動サイクル。家族でのおでかけやお買い物に最適です。</p>
+            <p class="sp-mob-desc">お子さまと一緒に乗れる電動アシスト自転車。荷物もたっぷり積めて、家族でのお買い物やおでかけに最適です。</p>
           </div>
         </div>
         <div class="sp-div"></div>
         <div class="sp-sh"><p class="sl">Notice</p><h2>乗車条件・注意事項</h2></div>
         <div class="sp-caut-list pb">
-          <div class="sp-caut"><span class="ci">📏</span><div class="ct"><strong>乗車条件</strong>身長140〜185cm、体重100kg以内の方</div></div>
-          <div class="sp-caut"><span class="ci">🚫</span><div class="ct"><strong>乗車不可</strong>飲酒されている方はご乗車いただけません</div></div>
-          <div class="sp-caut"><span class="ci">👤</span><div class="ct"><strong>WHILL は一人乗り専用</strong>二人乗り不可。利用人数分の台数をご予約ください</div></div>
-          <div class="sp-caut"><span class="ci">🌧</span><div class="ct"><strong>悪天候時</strong>天候によりご乗車いただけない場合があります</div></div>
+          <div class="sp-caut"><div class="ct"><strong>乗車条件</strong>身長140〜185cm、体重100kg以内の方</div></div>
+          <div class="sp-caut"><div class="ct"><strong>乗車不可</strong>飲酒されている方はご乗車いただけません</div></div>
+          <div class="sp-caut"><div class="ct"><strong>WHILL は一人乗り専用</strong>二人乗り不可。利用人数分の台数をそれぞれご予約ください</div></div>
+          <div class="sp-caut"><div class="ct"><strong>悪天候時</strong>天候によりご乗車いただけない場合があります</div></div>
         </div>
       </div>
     </div>
 
     <!-- PRICE -->
     <div class="sp-page" id="sp-price">
-      <div class="sp-ph"><h1>💴 料金・特典</h1><p>お得に移動できる料金プランと特典</p></div>
+      <div class="sp-ph"><h1>料金・特典</h1><p>お得に移動できる料金プランと特典のご案内</p></div>
       <div class="sp-sh"><p class="sl">Pricing</p><h2>ご利用料金</h2></div>
       <div class="sp-price-row">
         <div class="sp-pt"><p class="ptime">60 分</p><p class="pnum">300<small>円</small></p><p class="phint">短時間のお買い物に</p></div>
         <div class="sp-pt feat"><p class="ptime">120 分</p><p class="pnum">500<small>円</small></p><p class="phint">ゆっくり満喫</p></div>
       </div>
       <div style="padding:9px 14px 0;">
-        <div style="background:#fffbea;border-radius:11px;padding:11px 13px;font-size:0.74rem;color:#7a6000;line-height:1.6;">💳 電動サイクルはオンライン決済のみ。WHILLは現金・オンライン決済をお選びいただけます。</div>
+        <div style="background:#fffbea;border-radius:11px;padding:12px 14px;font-size:0.75rem;color:#7a6000;line-height:1.7;">電動サイクルはオンライン決済のみ。WHILLは現金・オンライン決済どちらもご利用いただけます。</div>
       </div>
       <div class="sp-div" style="margin-top:14px;"></div>
       <div class="sp-sh"><p class="sl">Benefits</p><h2>お得な特典</h2></div>
-      <div class="sp-ben"><span class="bi">🛒</span><div><p class="bt">京急プレミアポイント付与</p><p class="bd">京急ストアで500円以上のお買い物で<strong>京急プレミアポイント100ポイント</strong>を付与！<br>※モビリティの鍵を京急ストアレジにてご提示ください。</p></div></div>
-      <div class="sp-ben"><span class="bi">📋</span><div><p class="bt">事前説明会参加特典</p><p class="bd">事前説明会にご参加いただいた方限定で、<strong>お安く利用可能な定期券</strong>も購入できます！</p></div></div>
-      <div class="sp-ben pb"><span class="bi">👨‍👩‍👧</span><div><p class="bt">免許不要・誰でも乗れる</p><p class="bd">子どもから高齢の方まで免許なしでOK。平和島エリアを快適に移動できます。</p></div></div>
+      <div class="sp-ben">
+        <p class="bt">京急プレミアポイント付与</p>
+        <p class="bd">京急ストアで500円以上のお買い物で<strong>京急プレミアポイント100ポイント</strong>を付与！モビリティの鍵を京急ストアのレジにてご提示ください。</p>
+      </div>
+      <div class="sp-ben">
+        <p class="bt">事前説明会参加特典</p>
+        <p class="bd">事前説明会にご参加いただいた方限定で、<strong>お安く利用可能な定期券</strong>も購入できます！</p>
+      </div>
+      <div class="sp-ben pb">
+        <p class="bt">免許不要・誰でも乗れる</p>
+        <p class="bd">子どもから高齢の方まで免許なしでOK。平和島エリアを快適に移動できます。</p>
+      </div>
     </div>
 
     <!-- HOWTO -->
     <div class="sp-page" id="sp-howto">
-      <div class="sp-ph"><h1>📋 利用手順</h1><p>予約から返却まで3ステップ</p></div>
+      <div class="sp-ph"><h1>ご利用の流れ</h1><p>予約・決済から返却まで3ステップ</p></div>
       <div class="sp-pay-tabs">
         <button class="sp-ptab active" onclick="spPay('online',this)">オンライン決済</button>
         <button class="sp-ptab" onclick="spPay('cash',this)">現金決済（WHILLのみ）</button>
       </div>
       <div class="sp-steps active" id="sp-steps-online">
-        <div class="sp-step"><div class="sp-snum">01</div><div><p class="sp-stit">利用予約</p><p class="sp-sdesc">申し込みサイトより利用日時・モビリティを選択後、順番に沿って決済手続きを行なってください。空き状況は申し込みサイトよりご確認ください。</p></div></div>
-        <div class="sp-step"><div class="sp-snum">02</div><div><p class="sp-stit">鍵を受け取る</p><p class="sp-sdesc">ご登録アドレスに届く二次元バーコードをキーボックスにかざして、モビリティの鍵をお受け取りください。</p></div></div>
-        <div class="sp-step" style="margin-bottom:10px;"><div class="sp-snum">03</div><div><p class="sp-stit">返却する</p><p class="sp-sdesc">利用終了後はモビリティから鍵を取り外し、ロッカーへ返却してください。※キーボックスを開ける際は再度二次元バーコードが必要です。</p></div></div>
+        <div class="sp-step"><div class="sp-snum">01</div><div><p class="sp-stit">利用予約・決済</p><p class="sp-sdesc">申し込みサイトより利用日時・モビリティを選択し、決済手続きを行ってください。空き状況は申し込みサイトよりご確認いただけます。</p></div></div>
+        <div class="sp-step"><div class="sp-snum">02</div><div><p class="sp-stit">鍵を受け取る</p><p class="sp-sdesc">ご登録のメールアドレスに届く二次元バーコードをキーボックスにかざして、鍵をお受け取りください。</p></div></div>
+        <div class="sp-step" style="margin-bottom:10px;"><div class="sp-snum">03</div><div><p class="sp-stit">返却する</p><p class="sp-sdesc">利用終了後はモビリティから鍵を取り外し、キーボックスへ返却してください。返却時も二次元バーコードが必要です。</p></div></div>
       </div>
       <div class="sp-steps" id="sp-steps-cash">
-        <div class="sp-step"><div class="sp-snum">01</div><div><p class="sp-stit">利用予約</p><p class="sp-sdesc">ガチャガチャに利用時間分の現金を投入し、カプセル内にある二次元バーコードをお受け取りください。※空き状況は現地のモビリティをご確認ください。</p></div></div>
-        <div class="sp-step"><div class="sp-snum">02</div><div><p class="sp-stit">鍵を受け取る</p><p class="sp-sdesc">カプセル内の二次元バーコードをキーボックスにかざして、モビリティの鍵をお受け取りください。</p></div></div>
-        <div class="sp-step" style="margin-bottom:10px;"><div class="sp-snum">03</div><div><p class="sp-stit">返却する</p><p class="sp-sdesc">利用終了後はモビリティから鍵を取り外し、ロッカーへ返却してください。※キーボックスを開ける際は再度二次元バーコードが必要です。</p></div></div>
+        <div class="sp-step"><div class="sp-snum">01</div><div><p class="sp-stit">現金を投入する</p><p class="sp-sdesc">現地の現金投入式機器に利用時間分の現金を投入すると、二次元バーコードが印字されたカプセルが出てきます。空き状況は現地でご確認ください。</p></div></div>
+        <div class="sp-step"><div class="sp-snum">02</div><div><p class="sp-stit">鍵を受け取る</p><p class="sp-sdesc">カプセル内の二次元バーコードをキーボックスにかざして、鍵をお受け取りください。</p></div></div>
+        <div class="sp-step" style="margin-bottom:10px;"><div class="sp-snum">03</div><div><p class="sp-stit">返却する</p><p class="sp-sdesc">利用終了後はモビリティから鍵を取り外し、キーボックスへ返却してください。返却時も二次元バーコードが必要です。</p></div></div>
       </div>
       <div style="padding:4px 14px 22px;">
-        <div style="background:var(--teal-light);border-radius:11px;padding:12px 14px;font-size:0.76rem;color:var(--teal-dark);line-height:1.6;">📌 予約は1台ずつのみ可能です。複数台が必要な場合は台数分ご予約ください。</div>
+        <div style="background:var(--teal-light);border-radius:11px;padding:12px 14px;font-size:0.77rem;color:var(--teal-dark);line-height:1.65;">予約は1台ずつ行ってください。複数台が必要な場合は台数分それぞれご予約ください。</div>
       </div>
     </div>
 
     <!-- AREA -->
     <div class="sp-page" id="sp-area">
-      <div class="sp-ph"><h1>🗺️ エリア・行き先</h1><p>貸出場所から行ける目的地一覧</p></div>
+      <div class="sp-ph"><h1>エリア・行き先</h1><p>貸出場所から行ける目的地一覧</p></div>
       <div class="sp-sh"><p class="sl">Rental Point</p><h2>貸出・返却場所</h2></div>
       <div style="padding:0 14px;">
-        <div style="background:var(--dark);border-radius:14px;padding:16px;color:#fff;">
-          <p style="font-size:0.62rem;font-weight:700;letter-spacing:2px;color:var(--teal);margin-bottom:5px;">LOCATION</p>
-          <p style="font-size:0.95rem;font-weight:900;">コーシャハイム大森東</p>
-          <p style="font-size:0.76rem;color:rgba(255,255,255,0.65);margin-top:3px;line-height:1.5;">〒143-0012 東京都大田区大森東1丁目3</p>
-          <p style="margin-top:8px;font-size:0.7rem;color:rgba(255,255,255,0.4);">※利用後は必ずここに返却してください</p>
+        <div style="background:var(--dark);border-radius:14px;padding:16px 18px;color:#fff;">
+          <p style="font-size:0.62rem;font-weight:700;letter-spacing:2px;color:var(--teal);margin-bottom:6px;">LOCATION</p>
+          <p style="font-size:1rem;font-weight:900;">コーシャハイム大森東</p>
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.65);margin-top:4px;line-height:1.6;">〒143-0012 東京都大田区大森東1丁目3</p>
+          <p style="margin-top:10px;font-size:0.73rem;color:rgba(255,255,255,0.45);">ご利用後は必ずここに返却してください</p>
         </div>
       </div>
       <div class="sp-sh" style="margin-top:6px;"><p class="sl">Destinations</p><h2>行ける目的地</h2></div>
       <div class="sp-dest-list">
-        <a href="https://stores.itoyokado.co.jp/227" target="_blank" rel="noopener noreferrer" class="sp-dest"><span class="di">🏪</span><div><p class="dn">イトーヨーカドー大森店</p><p class="dl">公式サイトを見る →</p></div></a>
-        <a href="https://www.keikyu-store.co.jp/shop/m_heiwajima/?store_id=12" target="_blank" rel="noopener noreferrer" class="sp-dest"><span class="di">🛍️</span><div><p class="dn">京急ストア 平和島店</p><p class="dl">公式サイトを見る →</p></div></a>
-        <a href="https://www.big-fun.jp/" target="_blank" rel="noopener noreferrer" class="sp-dest"><span class="di">🎡</span><div><p class="dn">BIGFUN平和島</p><p class="dl">公式サイトを見る →</p></div></a>
+        <a href="https://stores.itoyokado.co.jp/227" target="_blank" rel="noopener noreferrer" class="sp-dest">
+          <div><p class="dn">イトーヨーカドー大森店</p><p class="dl">公式サイトを見る</p></div>
+          <span class="sp-dest-arrow">→</span>
+        </a>
+        <a href="https://www.keikyu-store.co.jp/shop/m_heiwajima/?store_id=12" target="_blank" rel="noopener noreferrer" class="sp-dest">
+          <div><p class="dn">京急ストア 平和島店</p><p class="dl">公式サイトを見る</p></div>
+          <span class="sp-dest-arrow">→</span>
+        </a>
+        <a href="https://www.big-fun.jp/" target="_blank" rel="noopener noreferrer" class="sp-dest">
+          <div><p class="dn">BIGFUN平和島</p><p class="dl">公式サイトを見る</p></div>
+          <span class="sp-dest-arrow">→</span>
+        </a>
       </div>
-      <div class="sp-sh" style="margin-top:6px;"><p class="sl">Route</p><h2>通過エリア</h2></div>
+      <div class="sp-sh" style="margin-top:6px;"><p class="sl">Route</p><h2>立ち寄れるスポット</h2></div>
       <div class="sp-tags">
-        <span class="sp-tag">沢田通り</span><span class="sp-tag">京急本線沿い</span><span class="sp-tag">入三銀座商店街</span><span class="sp-tag">平和島公園</span><span class="sp-tag">平和の森公園</span><span class="sp-tag">八幡通り</span><span class="sp-tag">大田区立大森スポーツセンター</span><span class="sp-tag">大森神社</span>
+        <span class="sp-tag">沢田通り</span>
+        <span class="sp-tag">入三銀座商店街</span>
+        <span class="sp-tag">平和島公園</span>
+        <span class="sp-tag">平和の森公園</span>
+        <span class="sp-tag">大田区立大森スポーツセンター</span>
+        <span class="sp-tag">大森神社</span>
       </div>
       <div class="sp-div" style="margin-top:14px;"></div>
       <div class="sp-sh"><p class="sl">Notes</p><h2>注意事項</h2></div>
       <div class="sp-caut-list pb">
-        <div class="sp-caut"><span class="ci">🌧</span><div class="ct"><strong>悪天候時</strong>天候によりご乗車いただけない場合があります</div></div>
-        <div class="sp-caut"><span class="ci">📏</span><div class="ct"><strong>乗車条件</strong>身長140〜185cm、体重100kg以内の方</div></div>
-        <div class="sp-caut"><span class="ci">🚫</span><div class="ct"><strong>乗車不可</strong>飲酒されている方はご乗車いただけません</div></div>
-        <div class="sp-caut"><span class="ci">💳</span><div class="ct"><strong>予約・決済</strong>予約は1台ずつ。電動サイクルはオンライン決済のみ</div></div>
+        <div class="sp-caut"><div class="ct"><strong>悪天候時</strong>天候によりご乗車いただけない場合があります</div></div>
+        <div class="sp-caut"><div class="ct"><strong>乗車条件</strong>身長140〜185cm、体重100kg以内の方</div></div>
+        <div class="sp-caut"><div class="ct"><strong>乗車不可</strong>飲酒されている方はご乗車いただけません</div></div>
+        <div class="sp-caut"><div class="ct"><strong>予約・決済</strong>予約は1台ずつ。電動サイクルはオンライン決済のみ</div></div>
       </div>
     </div>
 
   </div><!-- /sp-app -->
 
   <nav id="sp-nav">
-    <button class="sp-nav-btn active" onclick="spShow('home')" id="spnav-home"><span class="ni">🏠</span><span class="nl">ホーム</span></button>
-    <button class="sp-nav-btn" onclick="spShow('mobility')" id="spnav-mobility"><span class="ni">🛵</span><span class="nl">モビリティ</span></button>
-    <button class="sp-nav-btn" onclick="spShow('price')" id="spnav-price"><span class="ni">💴</span><span class="nl">料金・特典</span></button>
-    <button class="sp-nav-btn" onclick="spShow('howto')" id="spnav-howto"><span class="ni">📋</span><span class="nl">利用手順</span></button>
-    <button class="sp-nav-btn" onclick="spShow('area')" id="spnav-area"><span class="ni">🗺️</span><span class="nl">エリア</span></button>
+    <button class="sp-nav-btn active" onclick="spShow('home')" id="spnav-home"><span class="ni">▲</span><span class="nl">ホーム</span></button>
+    <button class="sp-nav-btn" onclick="spShow('mobility')" id="spnav-mobility"><span class="ni">—</span><span class="nl">モビリティ</span></button>
+    <button class="sp-nav-btn" onclick="spShow('price')" id="spnav-price"><span class="ni">¥</span><span class="nl">料金・特典</span></button>
+    <button class="sp-nav-btn" onclick="spShow('howto')" id="spnav-howto"><span class="ni">①</span><span class="nl">ご利用の流れ</span></button>
+    <button class="sp-nav-btn" onclick="spShow('area')" id="spnav-area"><span class="ni">◎</span><span class="nl">エリア</span></button>
   </nav>
 </div><!-- /sp-layout -->
 
 <script>
-  /* ---- PC tab ---- */
+  /* PC tab */
   function switchTab(type, e) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -644,7 +663,7 @@
     document.getElementById('tab-' + type).classList.add('active');
   }
 
-  /* ---- PC scroll fade ---- */
+  /* PC scroll fade */
   const obs = new IntersectionObserver(entries => {
     entries.forEach(en => {
       if (en.isIntersecting) { en.target.style.opacity='1'; en.target.style.transform='translateY(0)'; }
@@ -655,7 +674,7 @@
     obs.observe(el);
   });
 
-  /* ---- SP navigation ---- */
+  /* SP navigation */
   const spPages = ['home','mobility','price','howto','area'];
   let spCurrent = 'home';
   function spShow(id) {
@@ -672,14 +691,14 @@
       next.classList.add('active');
       next.style.transform = 'translateX(0)';
     }));
-    setTimeout(() => { prev.style.transform = ''; prev.style.transition = ''; }, 350);
+    setTimeout(() => { prev.style.transform=''; prev.style.transition=''; }, 350);
     next.scrollTop = 0;
     spCurrent = id;
     document.querySelectorAll('.sp-nav-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('spnav-' + id).classList.add('active');
   }
 
-  /* ---- SP pay tab ---- */
+  /* SP pay tab */
   function spPay(type, btn) {
     document.querySelectorAll('.sp-ptab').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.sp-steps').forEach(s => s.classList.remove('active'));
