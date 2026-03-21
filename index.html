@@ -41,7 +41,7 @@
     .hero-btns { display:flex; gap:16px; justify-content:center; align-items:center; flex-wrap:wrap; animation:fadeDown 0.7s 0.3s ease both; }
     .hero-cta { display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--teal-dark); font-weight:700; font-size:1.05rem; padding:16px 44px; border-radius:50px; text-decoration:none; box-shadow:0 8px 30px rgba(0,0,0,0.15); transition:transform 0.2s,box-shadow 0.2s; }
     .hero-cta:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.2); }
-    .hero-route { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.15); color:#fff; font-weight:700; font-size:1.05rem; padding:16px 44px; border-radius:50px; text-decoration:none; border:2px solid rgba(255,255,255,0.5); backdrop-filter:blur(4px); transition:transform 0.2s,background 0.2s,border-color 0.2s; }
+    .hero-route { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.15); color:#fff; font-weight:700; font-size:1.05rem; padding:16px 44px; border-radius:50px; text-decoration:none; border:2px solid rgba(255,255,255,0.5); backdrop-filter:blur(4px); transition:transform 0.2s,background 0.2s,border-color 0.2s; cursor:pointer; font-family:'Noto Sans JP',sans-serif; }
     .hero-route:hover { transform:translateY(-3px); background:rgba(255,255,255,0.25); border-color:#fff; }
     .hero-route svg, .hero-cta svg { flex-shrink:0; }
     .hero-scroll { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.6); font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; animation:bounce 2s infinite; }
@@ -173,7 +173,7 @@
       .sp-hero p { color:rgba(255,255,255,0.9); font-size:0.85rem; line-height:1.8; margin-bottom:22px; word-break: auto-phrase; }
       .sp-hero-btns { display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; }
       .sp-cta { display:inline-flex; align-items:center; gap:6px; background:#fff; color:var(--teal-dark); font-weight:700; font-size:0.92rem; padding:13px 24px; border-radius:50px; text-decoration:none; }
-      .sp-route { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); color:#fff; font-weight:700; font-size:0.85rem; padding:12px 20px; border-radius:50px; text-decoration:none; border:2px solid rgba(255,255,255,0.5); }
+      .sp-route { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); color:#fff; font-weight:700; font-size:0.85rem; padding:12px 20px; border-radius:50px; text-decoration:none; border:2px solid rgba(255,255,255,0.5); cursor:pointer; font-family:'Noto Sans JP',sans-serif; -webkit-tap-highlight-color:transparent; }
       .sp-route svg, .sp-cta svg { flex-shrink:0; }
 
       /* TILES */
@@ -250,6 +250,66 @@
       .sp-foot { background:var(--dark); color:rgba(255,255,255,0.6); text-align:center; padding:24px 16px; font-size:0.76rem; margin-top:7px; }
       .sp-foot strong { color:var(--teal); font-size:0.95rem; display:block; margin-bottom:5px; }
     }
+
+    /* =============================================
+       DESTINATION MODAL (共通)
+    ============================================= */
+    .dest-modal-overlay {
+      display:none; position:fixed; inset:0; z-index:9999;
+      background:rgba(0,0,0,0.55); backdrop-filter:blur(6px);
+      justify-content:center; align-items:center;
+      animation:modalFadeIn 0.25s ease;
+    }
+    .dest-modal-overlay.open { display:flex; }
+    .dest-modal {
+      background:#fff; border-radius:24px; width:90%; max-width:440px;
+      padding:32px 24px 24px; position:relative;
+      box-shadow:0 20px 60px rgba(0,0,0,0.25);
+      animation:modalSlideUp 0.3s ease;
+    }
+    .dest-modal-close {
+      position:absolute; top:14px; right:16px; background:none; border:none;
+      font-size:1.6rem; color:#aaa; cursor:pointer; line-height:1;
+      transition:color 0.2s;
+    }
+    .dest-modal-close:hover { color:var(--dark); }
+    .dest-modal-icon { text-align:center; margin-bottom:12px; }
+    .dest-modal-icon span {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:52px; height:52px; border-radius:50%;
+      background:var(--teal-light); color:var(--teal);
+    }
+    .dest-modal h3 {
+      text-align:center; font-size:1.15rem; font-weight:900; margin-bottom:4px; color:var(--dark);
+    }
+    .dest-modal .dest-modal-sub {
+      text-align:center; font-size:0.78rem; color:#888; margin-bottom:20px; line-height:1.6;
+    }
+    .dest-modal-origin {
+      background:var(--gray); border-radius:12px; padding:10px 14px; margin-bottom:18px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .dest-modal-origin .dm-pin { color:var(--teal); flex-shrink:0; }
+    .dest-modal-origin .dm-label { font-size:0.68rem; color:#999; font-weight:600; letter-spacing:1px; }
+    .dest-modal-origin .dm-name { font-size:0.88rem; font-weight:700; color:var(--dark); }
+    .dest-modal-list { display:flex; flex-direction:column; gap:10px; }
+    .dest-modal-item {
+      display:flex; align-items:center; justify-content:space-between;
+      background:#fff; border:2px solid #e8f5f4; border-radius:16px;
+      padding:16px 18px; text-decoration:none; color:var(--dark);
+      transition:border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    }
+    .dest-modal-item:hover { border-color:var(--teal); box-shadow:0 4px 16px rgba(42,189,181,0.13); transform:translateY(-2px); }
+    .dest-modal-item .dmi-left { display:flex; align-items:center; gap:12px; }
+    .dest-modal-item .dmi-num {
+      width:28px; height:28px; border-radius:50%; background:var(--teal);
+      color:#fff; font-size:0.75rem; font-weight:900; display:flex;
+      align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .dest-modal-item .dmi-name { font-size:0.92rem; font-weight:700; }
+    .dest-modal-item .dmi-arrow { color:var(--teal); font-size:1.1rem; font-weight:700; flex-shrink:0; }
+    @keyframes modalFadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes modalSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
   </style>
 </head>
 <body>
@@ -264,8 +324,8 @@
     <h1 class="hero-title">モビリティを<br><span>レンタル</span>しよう！</h1>
     <p class="hero-subtitle">免許不要で、子どもから高齢の方まで誰でも簡単に乗れる<br>座り乗りタイプの電動モビリティ WHILL と子ども乗せ電動サイクル。<br>荷物もたっぷり乗せられて、平和島エリアの移動が楽々に。</p>
     <div class="hero-btns">
-      <a href="https://select-type.com/rsv/?id=L51MbT2dpgg&nonom_flg=1" target="_blank" rel="noopener noreferrer" class="hero-cta"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>利用予約する</a>
-      <a href="https://www.google.com/maps/dir/?api=1&origin=コーシャハイム大森東+東京都大田区大森東1丁目3" target="_blank" rel="noopener noreferrer" class="hero-route"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>目的地へ行く</a>
+      <a href="https://select-type.com/rsv/?id=L51MbT2dpgg&nonom_flg=1" target="_blank" rel="noopener noreferrer" class="hero-cta"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>① 利用予約する</a>
+      <button onclick="openDestModal()" class="hero-route"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>② 目的地へガイド</button>
     </div>
     <div class="hero-scroll">SCROLL</div>
   </section>
@@ -489,8 +549,8 @@
         <h1>モビリティを<br><em>レンタル</em>しよう！</h1>
         <p>免許不要で誰でも乗れる電動モビリティ。<br>荷物もたっぷり、楽々移動。</p>
         <div class="sp-hero-btns">
-          <a href="https://select-type.com/rsv/?id=L51MbT2dpgg&nonom_flg=1" target="_blank" rel="noopener noreferrer" class="sp-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>利用予約する</a>
-          <a href="https://www.google.com/maps/dir/?api=1&origin=コーシャハイム大森東+東京都大田区大森東1丁目3" target="_blank" rel="noopener noreferrer" class="sp-route"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>目的地へ行く</a>
+          <a href="https://select-type.com/rsv/?id=L51MbT2dpgg&nonom_flg=1" target="_blank" rel="noopener noreferrer" class="sp-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>① 利用予約する</a>
+          <button onclick="openDestModal()" class="sp-route"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>② 目的地へガイド</button>
         </div>
       </div>
       <div class="sp-tiles">
@@ -729,6 +789,60 @@
     btn.classList.add('active');
     document.getElementById('sp-steps-' + type).classList.add('active');
   }
+
+  /* Destination modal */
+  function openDestModal() {
+    document.getElementById('dest-modal-overlay').classList.add('open');
+  }
+  function closeDestModal() {
+    document.getElementById('dest-modal-overlay').classList.remove('open');
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('dest-modal-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeDestModal();
+    });
+  });
 </script>
+
+<!-- DESTINATION MODAL -->
+<div class="dest-modal-overlay" id="dest-modal-overlay">
+  <div class="dest-modal">
+    <button class="dest-modal-close" onclick="closeDestModal()">&times;</button>
+    <div class="dest-modal-icon">
+      <span>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+      </span>
+    </div>
+    <h3>目的地を選択</h3>
+    <p class="dest-modal-sub">コーシャハイム大森東から徒歩ルートを表示します</p>
+    <div class="dest-modal-origin">
+      <div class="dm-pin">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+      </div>
+      <div>
+        <p class="dm-label">出発地</p>
+        <p class="dm-name">コーシャハイム大森東</p>
+      </div>
+    </div>
+    <div class="dest-modal-list">
+      <a class="dest-modal-item" href="https://www.google.com/maps/dir/?api=1&origin=35.5753,139.7358&destination=イトーヨーカドー大森店&travelmode=walking" target="_blank" rel="noopener noreferrer">
+        <div class="dmi-left"><span class="dmi-num">1</span><span class="dmi-name">イトーヨーカドー大森店</span></div>
+        <span class="dmi-arrow">→</span>
+      </a>
+      <a class="dest-modal-item" href="https://www.google.com/maps/dir/?api=1&origin=35.5753,139.7358&destination=京急ストア+平和島店&travelmode=walking" target="_blank" rel="noopener noreferrer">
+        <div class="dmi-left"><span class="dmi-num">2</span><span class="dmi-name">京急ストア 平和島店</span></div>
+        <span class="dmi-arrow">→</span>
+      </a>
+      <a class="dest-modal-item" href="https://www.google.com/maps/dir/?api=1&origin=35.5753,139.7358&destination=BIGFUN平和島&travelmode=walking" target="_blank" rel="noopener noreferrer">
+        <div class="dmi-left"><span class="dmi-num">3</span><span class="dmi-name">BIGFUN平和島</span></div>
+        <span class="dmi-arrow">→</span>
+      </a>
+      <a class="dest-modal-item" href="https://www.google.com/maps/dir/?api=1&origin=35.5753,139.7358&destination=マチノマ大森&travelmode=walking" target="_blank" rel="noopener noreferrer">
+        <div class="dmi-left"><span class="dmi-num">4</span><span class="dmi-name">マチノマ大森</span></div>
+        <span class="dmi-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
