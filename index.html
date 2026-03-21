@@ -38,8 +38,12 @@
     .hero-title { font-weight:900; font-size:clamp(3.5rem,12vw,7rem); color:#fff; line-height:1.05; letter-spacing:-2px; margin-bottom:16px; animation:fadeDown 0.7s 0.1s ease both; }
     .hero-title span { color:var(--yellow); display:inline-block; }
     .hero-subtitle { color:rgba(255,255,255,0.9); font-size:clamp(0.95rem,2.5vw,1.2rem); line-height:1.8; max-width:580px; margin:0 auto 40px; animation:fadeDown 0.7s 0.2s ease both; word-break: auto-phrase; }
-    .hero-cta { display:inline-block; background:#fff; color:var(--teal-dark); font-weight:700; font-size:1.05rem; padding:16px 44px; border-radius:50px; text-decoration:none; box-shadow:0 8px 30px rgba(0,0,0,0.15); transition:transform 0.2s,box-shadow 0.2s; animation:fadeDown 0.7s 0.3s ease both; }
+    .hero-btns { display:flex; gap:16px; justify-content:center; align-items:center; flex-wrap:wrap; animation:fadeDown 0.7s 0.3s ease both; }
+    .hero-cta { display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--teal-dark); font-weight:700; font-size:1.05rem; padding:16px 44px; border-radius:50px; text-decoration:none; box-shadow:0 8px 30px rgba(0,0,0,0.15); transition:transform 0.2s,box-shadow 0.2s; }
     .hero-cta:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,0.2); }
+    .hero-route { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.15); color:#fff; font-weight:700; font-size:1.05rem; padding:16px 44px; border-radius:50px; text-decoration:none; border:2px solid rgba(255,255,255,0.5); backdrop-filter:blur(4px); transition:transform 0.2s,background 0.2s,border-color 0.2s; }
+    .hero-route:hover { transform:translateY(-3px); background:rgba(255,255,255,0.25); border-color:#fff; }
+    .hero-route svg, .hero-cta svg { flex-shrink:0; }
     .hero-scroll { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.6); font-size:0.75rem; letter-spacing:2px; text-transform:uppercase; animation:bounce 2s infinite; }
     .hero-scroll::after { content:'↓'; display:block; text-align:center; font-size:1.2rem; }
 
@@ -167,7 +171,10 @@
       .sp-hero h1 { color:#fff; font-size:2.4rem; font-weight:900; line-height:1.1; margin-bottom:10px; }
       .sp-hero h1 em { color:var(--yellow); font-style:normal; }
       .sp-hero p { color:rgba(255,255,255,0.9); font-size:0.85rem; line-height:1.8; margin-bottom:22px; word-break: auto-phrase; }
-      .sp-cta { display:inline-block; background:#fff; color:var(--teal-dark); font-weight:700; font-size:0.92rem; padding:13px 28px; border-radius:50px; text-decoration:none; }
+      .sp-hero-btns { display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; }
+      .sp-cta { display:inline-flex; align-items:center; gap:6px; background:#fff; color:var(--teal-dark); font-weight:700; font-size:0.92rem; padding:13px 24px; border-radius:50px; text-decoration:none; }
+      .sp-route { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); color:#fff; font-weight:700; font-size:0.85rem; padding:12px 20px; border-radius:50px; text-decoration:none; border:2px solid rgba(255,255,255,0.5); }
+      .sp-route svg, .sp-cta svg { flex-shrink:0; }
 
       /* TILES */
       .sp-tiles { display:grid; grid-template-columns:1fr 1fr; gap:9px; padding:14px; }
@@ -256,7 +263,10 @@
     <div class="hero-badge">平和島エリア・新サービス　2026.3.23 スタート</div>
     <h1 class="hero-title">モビリティを<br><span>レンタル</span>しよう！</h1>
     <p class="hero-subtitle">免許不要で、子どもから高齢の方まで誰でも簡単に乗れる<br>座り乗りタイプの電動モビリティ WHILL と子ども乗せ電動サイクル。<br>荷物もたっぷり乗せられて、平和島エリアの移動が楽々に。</p>
-    <a href="https://select-type.com/rsv/?id=L51MbT2dpgg&nonom_flg=1" target="_blank" rel="noopener noreferrer" class="hero-cta">利用予約する</a>
+    <div class="hero-btns">
+      <a href="https://select-type.com/rsv/?id=L51MbT2dpgg&nonom_flg=1" target="_blank" rel="noopener noreferrer" class="hero-cta"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>利用予約する</a>
+      <a href="https://www.google.com/maps/dir/?api=1&origin=コーシャハイム大森東+東京都大田区大森東1丁目3" target="_blank" rel="noopener noreferrer" class="hero-route"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>目的地へ行く</a>
+    </div>
     <div class="hero-scroll">SCROLL</div>
   </section>
 
@@ -272,6 +282,7 @@
           <p class="vehicle-desc">座ったまま操作できる電動モビリティ。荷物もたっぷり乗せられて楽々移動できます。一人乗り専用・免許不要で、どなたでも安心してご利用いただけます。</p>
           <p class="vehicle-speed">最高速度：時速 6km ／ 移動用小型車</p>
           <a href="https://youtu.be/83bBRbul-kE?si=Tynw4CflG7hWKrXy" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:16px;background:var(--teal);color:#fff;font-size:0.84rem;font-weight:700;padding:9px 20px;border-radius:50px;text-decoration:none;">WHILL model S の紹介動画を見る</a>
+          <a href="https://web-guide-app.web.app/heiwajima/howtoreturnwhill" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:10px;background:var(--dark);color:#fff;font-size:0.84rem;font-weight:700;padding:9px 20px;border-radius:50px;text-decoration:none;">WHILLの乗り方ガイド</a>
         </div>
         <div class="vehicle-card">
           <div class="vehicle-name">子ども乗せ電動サイクル</div>
@@ -477,7 +488,10 @@
         <div class="sp-badge">平和島エリア　2026.3.23 スタート</div>
         <h1>モビリティを<br><em>レンタル</em>しよう！</h1>
         <p>免許不要で誰でも乗れる電動モビリティ。<br>荷物もたっぷり、楽々移動。</p>
-        <a href="https://select-type.com/rsv/?id=L51MbT2dpgg&nonom_flg=1" target="_blank" rel="noopener noreferrer" class="sp-cta">利用予約する</a>
+        <div class="sp-hero-btns">
+          <a href="https://select-type.com/rsv/?id=L51MbT2dpgg&nonom_flg=1" target="_blank" rel="noopener noreferrer" class="sp-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>利用予約する</a>
+          <a href="https://www.google.com/maps/dir/?api=1&origin=コーシャハイム大森東+東京都大田区大森東1丁目3" target="_blank" rel="noopener noreferrer" class="sp-route"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>目的地へ行く</a>
+        </div>
       </div>
       <div class="sp-tiles">
         <div class="sp-tile">
@@ -531,6 +545,7 @@
           <div class="sp-mob-body">
             <p class="sp-mob-desc">座ったまま操作できる電動モビリティ。荷物もたっぷり乗せられて楽々移動できます。一人乗り専用・免許不要です。</p>
             <a href="https://youtu.be/83bBRbul-kE?si=Tynw4CflG7hWKrXy" target="_blank" rel="noopener noreferrer" class="sp-mob-link">WHILL model S の紹介動画を見る</a>
+            <a href="https://web-guide-app.web.app/heiwajima/howtoreturnwhill" target="_blank" rel="noopener noreferrer" class="sp-mob-link" style="background:var(--dark);margin-top:8px;">WHILLの乗り方ガイド</a>
           </div>
         </div>
         <div class="sp-mob">
