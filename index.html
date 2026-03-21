@@ -369,6 +369,48 @@
       text-decoration:none; transition:background 0.2s; white-space:nowrap;
     }
     .dest-map-ext:hover { background:#e0e8e7; }
+
+    /* NAVIGATION MODE */
+    .dest-modal-overlay.nav-mode { background:rgba(0,0,0,0.85); }
+    .dest-modal-overlay.nav-mode .dest-modal {
+      max-width:100%; width:100%; height:100dvh; border-radius:0;
+      padding:0; display:flex; flex-direction:column;
+    }
+    .dest-modal-overlay.nav-mode .dest-modal-close { display:none; }
+    .dest-modal-overlay.nav-mode .dest-list-view { display:none !important; }
+    .dest-modal-overlay.nav-mode .dest-map-view { display:none !important; }
+    .nav-screen { display:none; flex-direction:column; flex:1; min-height:0; }
+    .dest-modal-overlay.nav-mode .nav-screen { display:flex; }
+    .nav-header {
+      display:flex; align-items:center; gap:12px;
+      background:var(--teal); color:#fff; padding:14px 18px;
+      flex-shrink:0;
+    }
+    .nav-header-info { flex:1; min-width:0; }
+    .nav-header-dest { font-weight:900; font-size:1rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .nav-header-from { font-size:0.72rem; opacity:0.8; margin-top:2px; }
+    .nav-pulse {
+      width:10px; height:10px; border-radius:50%; background:#fff;
+      flex-shrink:0; animation:navPulse 1.5s ease infinite;
+    }
+    @keyframes navPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+    .nav-frame { flex:1; border:none; width:100%; min-height:0; }
+    .nav-footer {
+      display:flex; gap:10px; padding:12px 16px;
+      background:#fff; flex-shrink:0; box-shadow:0 -4px 16px rgba(0,0,0,0.08);
+    }
+    .nav-btn-end {
+      flex:1; padding:14px; border-radius:14px; background:var(--coral); color:#fff;
+      font-weight:900; font-size:0.95rem; border:none; cursor:pointer;
+      font-family:'Noto Sans JP',sans-serif; transition:background 0.2s;
+    }
+    .nav-btn-end:hover { background:#c04444; }
+    .nav-btn-app {
+      padding:14px 18px; border-radius:14px; background:var(--gray); color:var(--dark);
+      font-weight:700; font-size:0.78rem; border:none; cursor:pointer;
+      font-family:'Noto Sans JP',sans-serif; transition:background 0.2s; white-space:nowrap;
+    }
+    .nav-btn-app:hover { background:#e0e8e7; }
     @media (max-width:768px) {
       .dest-map-frame { height:320px; }
     }
@@ -886,11 +928,15 @@
     document.getElementById('dest-modal-overlay').classList.add('open');
   }
   function closeDestModal() {
-    document.getElementById('dest-modal-overlay').classList.remove('open');
+    var overlay = document.getElementById('dest-modal-overlay');
+    overlay.classList.remove('open');
+    overlay.classList.remove('nav-mode');
     document.getElementById('dest-map-frame').src = '';
+    document.getElementById('nav-frame').src = '';
   }
   function showDestMap(idx) {
     var d = destData[idx];
+    currentDestIdx = idx;
     document.getElementById('dest-list-view').classList.add('hidden');
     document.getElementById('dest-map-view').classList.add('active');
     document.getElementById('dest-map-title').textContent = d.name + ' への徒歩ルート';
@@ -899,7 +945,22 @@
     document.getElementById('dest-map-frame').src = embedUrl;
     var fullUrl = 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent('東京都大田区大森東1-35 コーシャハイム4棟 1F') + '&destination=' + encodeURIComponent(d.name) + '&travelmode=walking';
     document.getElementById('dest-map-link').href = fullUrl;
-    document.getElementById('dest-map-nav').href = fullUrl;
+  }
+  var currentDestIdx = 0;
+  function startNavigation() {
+    var d = destData[currentDestIdx];
+    var overlay = document.getElementById('dest-modal-overlay');
+    overlay.classList.add('nav-mode');
+    document.getElementById('nav-header-dest').textContent = d.name + ' へ移動中';
+    var navUrl = 'https://www.google.com/maps?saddr=' + encodeURIComponent('東京都大田区大森東1-35 コーシャハイム4棟 1F') + '&daddr=' + d.daddr + '&dirflg=w&output=embed';
+    document.getElementById('nav-frame').src = navUrl;
+    var appUrl = 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent('東京都大田区大森東1-35 コーシャハイム4棟 1F') + '&destination=' + encodeURIComponent(d.name) + '&travelmode=walking';
+    document.getElementById('nav-app-link').href = appUrl;
+  }
+  function endNavigation() {
+    var overlay = document.getElementById('dest-modal-overlay');
+    overlay.classList.remove('nav-mode');
+    document.getElementById('nav-frame').src = '';
   }
   function backToDestList() {
     document.getElementById('dest-list-view').classList.remove('hidden');
@@ -995,11 +1056,28 @@
       </div>
       <iframe class="dest-map-frame" id="dest-map-frame" src="" allowfullscreen loading="lazy"></iframe>
       <div class="dest-map-btns">
-        <a class="dest-map-start" id="dest-map-nav" href="#" target="_blank" rel="noopener noreferrer">
+        <button class="dest-map-start" onclick="startNavigation()">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
           ガイド開始
-        </a>
+        </button>
         <a class="dest-map-ext" id="dest-map-link" href="#" target="_blank" rel="noopener noreferrer">Map で<br>大きく見る</a>
+      </div>
+    </div>
+
+    <!-- NAVIGATION SCREEN -->
+    <div class="nav-screen" id="nav-screen">
+      <div class="nav-header">
+        <div class="nav-pulse"></div>
+        <div class="nav-header-info">
+          <p class="nav-header-dest" id="nav-header-dest"></p>
+          <p class="nav-header-from">コーシャハイム4棟 1F から徒歩ガイド中</p>
+        </div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;opacity:0.8;"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+      </div>
+      <iframe class="nav-frame" id="nav-frame" src="" allowfullscreen></iframe>
+      <div class="nav-footer">
+        <button class="nav-btn-end" onclick="endNavigation()">ガイド終了</button>
+        <a class="nav-btn-app" id="nav-app-link" href="#" target="_blank" rel="noopener noreferrer">Maps<br>アプリで開く</a>
       </div>
     </div>
 
