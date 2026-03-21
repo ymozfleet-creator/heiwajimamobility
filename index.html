@@ -350,6 +350,25 @@
       text-align:center; text-decoration:none; transition:background 0.2s;
     }
     .dest-map-open:hover { background:var(--teal-dark); }
+    .dest-map-btns { display:flex; gap:10px; margin-top:14px; }
+    .dest-map-start {
+      flex:1; display:flex; align-items:center; justify-content:center; gap:8px;
+      padding:15px 12px; border-radius:14px;
+      background:var(--teal); color:#fff; font-weight:900; font-size:0.95rem;
+      border:none; cursor:pointer; font-family:'Noto Sans JP',sans-serif;
+      text-decoration:none; transition:background 0.2s, transform 0.15s;
+      box-shadow:0 4px 16px rgba(42,189,181,0.3);
+    }
+    .dest-map-start:hover { background:var(--teal-dark); transform:translateY(-2px); }
+    .dest-map-start svg { flex-shrink:0; }
+    .dest-map-ext {
+      display:flex; align-items:center; justify-content:center;
+      padding:15px 16px; border-radius:14px;
+      background:var(--gray); color:var(--dark); font-weight:700; font-size:0.78rem;
+      border:none; cursor:pointer; font-family:'Noto Sans JP',sans-serif;
+      text-decoration:none; transition:background 0.2s; white-space:nowrap;
+    }
+    .dest-map-ext:hover { background:#e0e8e7; }
     @media (max-width:768px) {
       .dest-map-frame { height:320px; }
     }
@@ -860,7 +879,7 @@
     { name:'BIGFUN平和島',          dest:'BIGFUN平和島',          daddr:'35.5779,139.7417' },
     { name:'マチノマ大森',          dest:'マチノマ大森',          daddr:'35.5850,139.7290' }
   ];
-  var ORIGIN = '35.5753,139.7358';
+  var ORIGIN = '東京都大田区大森東1-35+コーシャハイム4棟+1F';
 
   function openDestModal() {
     backToDestList();
@@ -876,10 +895,11 @@
     document.getElementById('dest-map-view').classList.add('active');
     document.getElementById('dest-map-title').textContent = d.name + ' への徒歩ルート';
     document.getElementById('dest-map-dest-name').textContent = d.name;
-    var embedUrl = 'https://www.google.com/maps?saddr=' + ORIGIN + '&daddr=' + d.daddr + '&dirflg=w&output=embed';
+    var embedUrl = 'https://www.google.com/maps?saddr=' + encodeURIComponent('東京都大田区大森東1-35 コーシャハイム4棟 1F') + '&daddr=' + d.daddr + '&dirflg=w&output=embed';
     document.getElementById('dest-map-frame').src = embedUrl;
-    var fullUrl = 'https://www.google.com/maps/dir/?api=1&origin=' + ORIGIN + '&destination=' + encodeURIComponent(d.name) + '&travelmode=walking';
+    var fullUrl = 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent('東京都大田区大森東1-35 コーシャハイム4棟 1F') + '&destination=' + encodeURIComponent(d.name) + '&travelmode=walking';
     document.getElementById('dest-map-link').href = fullUrl;
+    document.getElementById('dest-map-nav').href = fullUrl;
   }
   function backToDestList() {
     document.getElementById('dest-list-view').classList.remove('hidden');
@@ -923,14 +943,15 @@
         </span>
       </div>
       <h3>目的地を選択</h3>
-      <p class="dest-modal-sub">コーシャハイム大森東から徒歩ルートを表示します</p>
+      <p class="dest-modal-sub">コーシャハイム4棟 1Fから徒歩ルートを表示します</p>
       <div class="dest-modal-origin">
         <div class="dm-pin">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
         </div>
         <div>
           <p class="dm-label">出発地</p>
-          <p class="dm-name">コーシャハイム大森東</p>
+          <p class="dm-name">コーシャハイム4棟 1F</p>
+          <p style="font-size:0.68rem;color:#999;margin-top:1px;">東京都大田区大森東1-35</p>
         </div>
       </div>
       <div class="dest-modal-list">
@@ -962,7 +983,7 @@
       <p class="dest-map-title" id="dest-map-title"></p>
       <div class="dest-map-route">
         <svg class="dmr-dot" width="8" height="8"><circle cx="4" cy="4" r="4" fill="#2abdb5"/></svg>
-        <span>コーシャハイム大森東</span>
+        <span>コーシャハイム4棟 1F<span style="color:#bbb;font-size:0.72rem;margin-left:6px;">大森東1-35</span></span>
       </div>
       <div class="dest-map-route" style="margin-top:-10px;">
         <svg width="8" height="16" style="flex-shrink:0;margin-left:0;"><line x1="4" y1="0" x2="4" y2="16" stroke="#ddd" stroke-width="2"/></svg>
@@ -973,7 +994,13 @@
         <span id="dest-map-dest-name"></span>
       </div>
       <iframe class="dest-map-frame" id="dest-map-frame" src="" allowfullscreen loading="lazy"></iframe>
-      <a class="dest-map-open" id="dest-map-link" href="#" target="_blank" rel="noopener noreferrer">Google Maps で大きく見る</a>
+      <div class="dest-map-btns">
+        <a class="dest-map-start" id="dest-map-nav" href="#" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+          ガイド開始
+        </a>
+        <a class="dest-map-ext" id="dest-map-link" href="#" target="_blank" rel="noopener noreferrer">Map で<br>大きく見る</a>
+      </div>
     </div>
 
   </div>
