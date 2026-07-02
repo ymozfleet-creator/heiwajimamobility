@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    :root {
+    :root 
       --teal: #2abdb5; --teal-dark: #1e9990; --teal-light: #e8faf9;
       --coral: #e05555; --yellow: #ffd93d; --dark: #1a2e2d; --gray: #f4f8f7;
     }
@@ -302,7 +302,7 @@
 <script>
 // ====================================================
 // ↓↓↓ GASのWebアプリURLをここに貼り付けてください ↓↓↓
-var GAS_URL = 'ここにGASのWebアプリURLを貼り付け';
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbw-MUv7CrLyJk6tNJqwRFaDw5FWvdRbQydcUZx39frV82AzfiyaLOyWFgb9znoiIeYu/exec';
 // ↑↑↑ GASのWebアプリURLをここに貼り付けてください ↑↑↑
 // ====================================================
 
