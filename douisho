@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご利用同意書 | モビリティレンタル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --teal: #2abdb5; --teal-dark: #1e9990; --teal-light: #e8faf9;
+      --coral: #e05555; --yellow: #ffd93d; --dark: #1a2e2d; --gray: #f4f8f7;
+    }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--gray); color: var(--dark);
+      min-height: 100dvh;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      color: #fff; text-align: center; padding: 28px 20px 24px;
+    }
+    .header-label {
+      display: inline-block; background: rgba(255,255,255,0.2);
+      font-size: 0.68rem; font-weight: 700; padding: 4px 14px;
+      border-radius: 50px; margin-bottom: 10px; letter-spacing: 1px;
+    }
+    .header h1 { font-size: 1.4rem; font-weight: 900; line-height: 1.4; }
+    .header p { font-size: 0.82rem; opacity: 0.85; margin-top: 6px; }
+
+    /* CARD */
+    .card {
+      background: #fff; margin: 16px; border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06); overflow: hidden;
+    }
+    .card-header {
+      background: var(--dark); color: #fff; padding: 14px 20px;
+      font-size: 0.82rem; font-weight: 900; display: flex;
+      align-items: center; gap: 8px;
+    }
+    .card-body { padding: 20px; }
+
+    /* AGREEMENT */
+    .agreement {
+      background: var(--gray); border-radius: 14px; padding: 18px;
+      max-height: 320px; overflow-y: auto; margin-bottom: 20px;
+      font-size: 0.82rem; line-height: 2; color: #444;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid #e8eded;
+    }
+    .agreement h3 {
+      font-size: 0.88rem; font-weight: 900; color: var(--dark);
+      margin: 16px 0 8px; padding-bottom: 4px;
+      border-bottom: 2px solid var(--teal-light);
+    }
+    .agreement h3:first-child { margin-top: 0; }
+    .agreement .warn {
+      color: var(--coral); font-weight: 700;
+    }
+
+    /* FORM */
+    .form-group { margin-bottom: 18px; }
+    .form-label {
+      display: block; font-size: 0.82rem; font-weight: 900;
+      margin-bottom: 6px; color: var(--dark);
+    }
+    .form-label .req {
+      display: inline-block; background: var(--coral); color: #fff;
+      font-size: 0.62rem; font-weight: 700; padding: 2px 8px;
+      border-radius: 4px; margin-left: 8px; vertical-align: middle;
+    }
+    .form-input {
+      width: 100%; padding: 14px 16px; border-radius: 12px;
+      border: 2px solid #e0e8e7; font-size: 1rem;
+      font-family: 'Noto Sans JP', sans-serif; color: var(--dark);
+      background: #fff; transition: border-color 0.2s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .form-input:focus { outline: none; border-color: var(--teal); }
+    .form-input::placeholder { color: #bbb; }
+
+    .form-row { display: flex; gap: 12px; }
+    .form-row .form-group { flex: 1; }
+
+    /* AGE SELECT */
+    .age-select {
+      position: relative;
+    }
+    .age-select select {
+      width: 100%; padding: 14px 40px 14px 16px; border-radius: 12px;
+      border: 2px solid #e0e8e7; font-size: 1rem;
+      font-family: 'Noto Sans JP', sans-serif; color: var(--dark);
+      background: #fff; -webkit-appearance: none; appearance: none;
+      cursor: pointer; transition: border-color 0.2s;
+    }
+    .age-select select:focus { outline: none; border-color: var(--teal); }
+    .age-select::after {
+      content: '▼'; position: absolute; right: 16px; top: 50%;
+      transform: translateY(-50%); font-size: 0.7rem; color: #999;
+      pointer-events: none;
+    }
+
+    /* CHECKBOX */
+    .consent-check {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: var(--teal-light); border: 2px solid var(--teal);
+      border-radius: 14px; padding: 16px; margin-bottom: 20px;
+      cursor: pointer; transition: background 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .consent-check:hover { background: #d6f5f3; }
+    .consent-check input[type="checkbox"] {
+      width: 24px; height: 24px; flex-shrink: 0;
+      margin-top: 2px; accent-color: var(--teal);
+      cursor: pointer;
+    }
+    .consent-check span {
+      font-size: 0.92rem; font-weight: 900; color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* SUBMIT */
+    .submit-btn {
+      display: block; width: 100%; padding: 18px;
+      background: var(--teal); color: #fff;
+      font-size: 1.05rem; font-weight: 900;
+      font-family: 'Noto Sans JP', sans-serif;
+      border: none; border-radius: 14px; cursor: pointer;
+      transition: background 0.2s, transform 0.15s, opacity 0.2s;
+      box-shadow: 0 6px 20px rgba(42,189,181,0.3);
+    }
+    .submit-btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .submit-btn:disabled {
+      background: #ccc; box-shadow: none; cursor: not-allowed;
+      transform: none;
+    }
+
+    /* DONE SCREEN */
+    .done-screen {
+      display: none; text-align: center; padding: 60px 20px;
+    }
+    .done-screen.show { display: block; }
+    .done-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: var(--teal-light); color: var(--teal);
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .done-screen h2 { font-size: 1.3rem; font-weight: 900; margin-bottom: 10px; }
+    .done-screen p { font-size: 0.88rem; color: #666; line-height: 1.8; }
+    .done-info {
+      background: var(--gray); border-radius: 14px; padding: 18px;
+      margin: 20px 16px; text-align: left; font-size: 0.85rem; line-height: 2;
+    }
+    .done-info strong { color: var(--dark); }
+
+    .form-screen { display: block; }
+    .form-screen.hide { display: none; }
+
+    /* FOOTER */
+    .footer {
+      text-align: center; padding: 24px 16px; color: #aaa;
+      font-size: 0.72rem;
+    }
+    .footer strong { color: var(--teal); font-size: 0.85rem; display: block; margin-bottom: 4px; }
+
+    /* SCROLL HINT */
+    .scroll-hint {
+      text-align: center; color: #aaa; font-size: 0.72rem;
+      margin-top: -8px; margin-bottom: 12px;
+    }
+
+    .error-msg {
+      color: var(--coral); font-size: 0.78rem; font-weight: 700;
+      margin-top: 6px; display: none;
+    }
+    .error-msg.show { display: block; }
+  </style>
+</head>
+<body>
+
+<div class="form-screen" id="formScreen">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-label">現金決済（ガチャ）ご利用のお客様</div>
+    <h1>ご利用同意書</h1>
+    <p>モビリティレンタルをご利用いただく前に<br>以下の内容をご確認ください。</p>
+  </div>
+
+  <!-- AGREEMENT CARD -->
+  <div class="card">
+    <div class="card-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      利用規約・注意事項
+    </div>
+    <div class="card-body">
+      <div class="agreement" id="agreementBox">
+        <h3>1. サービス概要</h3>
+        本サービスは、合同会社Limotが提供する電動モビリティ（WHILL model S）および子ども乗せ電動サイクルのレンタルサービスです。
+        貸出・返却場所はコーシャハイム大森東（〒143-0012 東京都大田区大森東1丁目35）です。
+
+        <h3>2. 乗車条件</h3>
+        <span class="warn">以下の条件を満たさない方はご利用いただけません。</span><br>
+        ・身長 140cm〜185cm、体重 100kg以内の方<br>
+        ・飲酒されていない方<br>
+        ・安全にモビリティを操作できる状態の方
+
+        <h3>3. 禁止事項</h3>
+        ・WHILLは一人乗り専用です。二人乗りは禁止です。<br>
+        ・飲酒後の乗車は固くお断りいたします。<br>
+        ・悪天候（強風・大雨等）時のご利用はお控えください。<br>
+        ・貸出エリア外への持ち出しは禁止です。
+
+        <h3>4. 返却について</h3>
+        ご利用終了後は、必ずコーシャハイム大森東の貸出場所へモビリティを返却し、鍵をキーボックスへお戻しください。返却時にはバーコードが必要です。
+
+        <h3>5. 事故・破損について</h3>
+        ご利用中の事故・怪我については、利用者ご自身の責任となります。故意または重大な過失によるモビリティの破損・紛失が生じた場合、修理費・弁償費をご請求させていただく場合があります。
+
+        <h3>6. 個人情報の取扱い</h3>
+        ご入力いただいたお名前・年齢は、本サービスの安全管理および緊急時連絡のためにのみ使用し、第三者への提供は行いません。
+
+        <h3>7. 免責事項</h3>
+        天候、機器の故障等によりサービスを中止する場合があります。本サービス利用中に発生した事故やトラブルについて、合同会社Limotは法令に定める範囲を超えて責任を負いません。
+      </div>
+      <p class="scroll-hint">↕ スクロールして最後までお読みください</p>
+
+      <!-- FORM FIELDS -->
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">お名前<span class="req">必須</span></label>
+          <input type="text" class="form-input" id="userName" placeholder="例：山田 太郎">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">年齢<span class="req">必須</span></label>
+          <div class="age-select">
+            <select id="userAge">
+              <option value="">選択してください</option>
+              <option value="10歳未満">10歳未満</option>
+              <option value="10〜17歳">10〜17歳</option>
+              <option value="18〜29歳">18〜29歳</option>
+              <option value="30〜39歳">30〜39歳</option>
+              <option value="40〜49歳">40〜49歳</option>
+              <option value="50〜59歳">50〜59歳</option>
+              <option value="60〜69歳">60〜69歳</option>
+              <option value="70〜79歳">70〜79歳</option>
+              <option value="80歳以上">80歳以上</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONSENT CHECKBOX -->
+      <label class="consent-check" for="consentCheck">
+        <input type="checkbox" id="consentCheck">
+        <span>上記の利用規約・注意事項を確認し、<br>すべてに同意します。</span>
+      </label>
+
+      <p class="error-msg" id="errorMsg">お名前と年齢をご入力のうえ、同意にチェックを入れてください。</p>
+
+      <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">同意して利用を開始する</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>合同会社 Limot</strong>
+    協力：京急電鉄・大田区・JKK東京
+  </div>
+
+</div>
+
+<!-- DONE SCREEN -->
+<div class="done-screen" id="doneScreen">
+  <div class="done-icon">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <h2>同意が完了しました</h2>
+  <p>ガチャで受け取ったバーコードを<br>キーボックスにかざして<br>鍵をお受け取りください。</p>
+
+  <div class="done-info">
+    <strong>ご利用者情報</strong><br>
+    お名前：<span id="doneUserName"></span><br>
+    年齢：<span id="doneUserAge"></span><br>
+    同意日時：<span id="doneTimestamp"></span>
+  </div>
+
+  <p style="color:#aaa;font-size:0.78rem;margin-top:16px;">この画面をスタッフに提示を<br>お願いする場合があります。</p>
+
+  <div class="footer">
+    <strong>合同会社 Limot</strong>
+    協力：京急電鉄・大田区・JKK東京
+  </div>
+</div>
+
+<script>
+// ====================================================
+// ↓↓↓ GASのWebアプリURLをここに貼り付けてください ↓↓↓
+var GAS_URL = 'ここにGASのWebアプリURLを貼り付け';
+// ↑↑↑ GASのWebアプリURLをここに貼り付けてください ↑↑↑
+// ====================================================
+
+function handleSubmit() {
+  var name = document.getElementById('userName').value.trim();
+  var age = document.getElementById('userAge').value;
+  var agreed = document.getElementById('consentCheck').checked;
+  var errorEl = document.getElementById('errorMsg');
+  var btn = document.getElementById('submitBtn');
+
+  if (!name || !age || !agreed) {
+    errorEl.classList.add('show');
+    return;
+  }
+
+  errorEl.classList.remove('show');
+
+  // ボタンを送信中に変更
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+
+  // GASにデータ送信
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: name,
+      age: age
+    })
+  })
+  .then(function() {
+    showDoneScreen(name, age);
+  })
+  .catch(function(err) {
+    console.error('送信エラー:', err);
+    // エラーでも完了画面は表示（データはローカルに表示）
+    showDoneScreen(name, age);
+  });
+}
+
+function showDoneScreen(name, age) {
+  document.getElementById('formScreen').classList.add('hide');
+  var done = document.getElementById('doneScreen');
+  done.classList.add('show');
+
+  document.getElementById('doneUserName').textContent = name;
+  document.getElementById('doneUserAge').textContent = age;
+
+  var now = new Date();
+  var ts = now.getFullYear() + '年'
+    + (now.getMonth()+1) + '月'
+    + now.getDate() + '日 '
+    + ('0'+now.getHours()).slice(-2) + ':'
+    + ('0'+now.getMinutes()).slice(-2);
+  document.getElementById('doneTimestamp').textContent = ts;
+
+  window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
