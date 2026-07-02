@@ -13,19 +13,25 @@
     .head h1{font-size:1.3rem;font-weight:900}
     .head p{font-size:0.78rem;opacity:0.85;margin-top:6px}
     .box{background:#fff;border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,0.04)}
-    .box-title{font-size:0.82rem;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:6px}
-    .rules{font-size:0.8rem;line-height:2;color:#444}
-    .rules .warn{color:#e05555;font-weight:700}
+    .box-title{font-size:0.85rem;font-weight:900;margin-bottom:12px;display:flex;align-items:center;gap:6px;padding-bottom:8px;border-bottom:2px solid #e8faf9}
+    .terms{font-size:0.78rem;line-height:1.9;color:#444;max-height:360px;overflow-y:auto;padding-right:4px;-webkit-overflow-scrolling:touch}
+    .terms h4{font-size:0.82rem;font-weight:900;color:#1a2e2d;margin:14px 0 6px;padding-left:0}
+    .terms h4:first-child{margin-top:0}
+    .terms .warn{color:#e05555;font-weight:700}
+    .terms ol{padding-left:1.2em;margin:4px 0}
+    .terms ol li{margin-bottom:4px}
+    .scroll-hint{text-align:center;color:#aaa;font-size:0.68rem;margin-top:6px}
     .label{font-size:0.82rem;font-weight:900;margin-bottom:6px}
     .label .req{background:#e05555;color:#fff;font-size:0.6rem;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:middle}
     .input{width:100%;padding:12px 14px;border:2px solid #e0e8e7;border-radius:10px;font-size:1rem;font-family:'Noto Sans JP',sans-serif;-webkit-appearance:none;margin-bottom:14px}
     .input:focus{outline:none;border-color:#2abdb5}
     .sel-wrap{position:relative;margin-bottom:14px}
     .sel-wrap select{width:100%;padding:12px 36px 12px 14px;border:2px solid #e0e8e7;border-radius:10px;font-size:1rem;font-family:'Noto Sans JP',sans-serif;-webkit-appearance:none;appearance:none;background:#fff}
+    .sel-wrap select:focus{outline:none;border-color:#2abdb5}
     .sel-wrap::after{content:'▼';position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:0.65rem;color:#999;pointer-events:none}
     .chk{display:flex;align-items:flex-start;gap:10px;background:#e8faf9;border:2px solid #2abdb5;border-radius:12px;padding:14px;margin-bottom:14px;cursor:pointer;-webkit-tap-highlight-color:transparent}
     .chk input{width:22px;height:22px;flex-shrink:0;margin-top:2px;accent-color:#2abdb5}
-    .chk span{font-size:0.88rem;font-weight:700;line-height:1.5}
+    .chk span{font-size:0.85rem;font-weight:700;line-height:1.5}
     .btn{display:block;width:100%;padding:16px;background:#2abdb5;color:#fff;font-size:1rem;font-weight:900;font-family:'Noto Sans JP',sans-serif;border:none;border-radius:12px;cursor:pointer}
     .btn:disabled{background:#ccc;cursor:not-allowed}
     .err{color:#e05555;font-size:0.78rem;font-weight:700;margin-bottom:10px;display:none}
@@ -44,24 +50,87 @@
 
 <div class="wrap form-screen" id="formScreen">
   <div class="head">
-    <h1>ご利用同意書</h1>
-    <p>以下をご確認のうえ同意してください</p>
+    <h1>モビリティレンタル ご利用同意書</h1>
+    <p>ご利用にあたり、以下の規約をすべてお読みいただき<br>同意のうえご利用ください</p>
   </div>
 
   <div class="box">
-    <div class="box-title">📋 注意事項</div>
-    <div class="rules">
-      <span class="warn">以下に該当する方はご利用いただけません：</span><br>
-      ・身長 140cm〜185cm、体重 100kg以内でない方<br>
-      ・飲酒されている方<br>
-      ・WHILLは一人乗り専用（二人乗り禁止）<br>
-      ・利用後は必ずコーシャハイム大森東へ返却してください<br>
-      ・事故・破損は利用者の責任となります
+    <div class="box-title">📋 利用規約</div>
+    <div class="terms">
+
+      <h4>第1条（サービスの概要）</h4>
+      本サービスは、合同会社Limot（以下「当社」）が提供する電動モビリティ（WHILL model S）および子ども乗せ電動サイクル（以下「モビリティ」）の短時間レンタルサービスです。貸出・返却場所はコーシャハイム大森東（〒143-0012 東京都大田区大森東1丁目35）に限ります。
+
+      <h4>第2条（利用資格）</h4>
+      <span class="warn">以下のすべてを満たす方のみご利用いただけます。</span>
+      <ol>
+        <li>身長140cm以上185cm以下、体重100kg以内であること</li>
+        <li>飲酒していないこと</li>
+        <li>心身ともにモビリティを安全に操作できる状態であること</li>
+        <li>本同意書の内容を理解し同意すること</li>
+      </ol>
+      未成年者がご利用の場合は、保護者の同意を得たうえでご利用ください。本同意書への記入をもって保護者の同意があったものとみなします。
+
+      <h4>第3条（禁止事項）</h4>
+      利用者は以下の行為を行ってはなりません。
+      <ol>
+        <li>WHILLでの二人乗り（一人乗り専用です）</li>
+        <li>飲酒後の乗車</li>
+        <li>貸出エリア外への持ち出し</li>
+        <li>第三者への転貸・又貸し</li>
+        <li>危険な運転、歩行者への迷惑行為</li>
+        <li>モビリティの改造・分解</li>
+        <li>悪天候（強風・大雨・積雪等）時の利用</li>
+      </ol>
+
+      <h4>第4条（返却義務）</h4>
+      利用者は、利用終了後速やかにモビリティをコーシャハイム大森東の所定の貸出場所へ返却し、鍵をキーボックスへお戻しください。返却が確認できない場合、当社は利用者に対して捜索費用・延滞料金その他の損害の賠償を請求できるものとします。
+
+      <h4>第5条（利用者の自己責任）</h4>
+      <span class="warn">モビリティの利用はすべて利用者自身の責任において行うものとします。</span>利用中に発生した事故、怪我、疾病、死亡、第三者への加害その他一切の損害について、当社は故意または重大な過失がある場合を除き、一切の責任を負いません。
+
+      <h4>第6条（損害賠償）</h4>
+      利用者の故意・過失・不注意・規約違反等によりモビリティの破損・紛失・盗難が生じた場合、利用者は修理費用・再調達費用その他当社に生じた一切の損害を賠償する義務を負います。
+
+      <h4>第7条（第三者への損害）</h4>
+      利用中に利用者が第三者に損害を与えた場合、利用者自身の責任と費用をもって解決するものとし、当社は一切の責任を負いません。
+
+      <h4>第8条（保険について）</h4>
+      本サービスには、東京海上日動火災保険株式会社による以下の保険が付帯しています。
+      <ol>
+        <li>交通乗用具搭乗中の傷害危険担保契約（モビリティ搭乗中の利用者の傷害を補償）</li>
+        <li>動産総合保険（モビリティ本体の損害を補償）</li>
+      </ol>
+      ただし、保険の補償範囲・免責事項等は保険約款の定めによります。利用者の故意・重大な過失・規約違反に起因する事故等、保険が適用されない場合があります。保険の補償範囲を超える損害については、利用者ご自身のご負担となります。
+
+      <h4>第9条（サービスの中断・中止）</h4>
+      当社は、天候不良、機器の故障、安全上の理由その他やむを得ない事由により、事前の通知なくサービスを中断・中止できるものとします。これにより利用者に生じた損害について、当社は責任を負いません。
+
+      <h4>第10条（個人情報の取扱い）</h4>
+      当社は、利用者からご提供いただいた氏名・年齢等の個人情報を、以下の目的にのみ使用し、法令に基づく場合を除き第三者に提供しません。
+      <ol>
+        <li>本サービスの運営管理・安全管理</li>
+        <li>事故発生時の対応・連絡</li>
+        <li>サービス改善のための統計分析（個人を特定しない形式）</li>
+      </ol>
+
+      <h4>第11条（免責事項）</h4>
+      <ol>
+        <li>当社はモビリティの性能・安全性について、法令に定める範囲を超える保証を行いません。</li>
+        <li>利用者が本規約に違反して生じた損害について、当社は一切責任を負いません。</li>
+        <li>天災、事故、盗難その他不可抗力により生じた損害について、当社は責任を負いません。</li>
+      </ol>
+
+      <h4>第12条（準拠法および管轄裁判所）</h4>
+      本規約は日本法に準拠し、本サービスに関する一切の紛争は東京地方裁判所を第一審の専属的合意管轄裁判所とします。
+
     </div>
+    <p class="scroll-hint">↕ 最後までスクロールしてお読みください</p>
   </div>
 
   <div class="box">
-    <div class="label">お名前<span class="req">必須</span></div>
+    <div class="box-title">✍ ご利用者情報</div>
+    <div class="label">お名前（フルネーム）<span class="req">必須</span></div>
     <input type="text" class="input" id="userName" placeholder="例：山田 太郎">
     <div class="label">年齢<span class="req">必須</span></div>
     <div class="sel-wrap">
@@ -80,7 +149,7 @@
     </div>
     <label class="chk" for="ck">
       <input type="checkbox" id="ck">
-      <span>注意事項を確認し、すべてに同意します</span>
+      <span>上記の利用規約（第1条〜第12条）をすべて読み、内容を理解したうえで同意します</span>
     </label>
     <p class="err" id="err">お名前・年齢を入力し、同意にチェックを入れてください</p>
     <button class="btn" id="btn" onclick="submit()">同意して利用開始</button>
@@ -98,8 +167,9 @@
   <div class="done-info">
     お名前：<span id="dn"></span><br>
     年齢：<span id="da"></span><br>
-    日時：<span id="dt"></span>
+    同意日時：<span id="dt"></span>
   </div>
+  <p style="color:#999;font-size:0.72rem;margin-top:12px;">この画面を保存またはスクリーンショットで<br>お控えいただくことをお勧めします</p>
   <div class="foot">合同会社 Limot</div>
 </div>
 
